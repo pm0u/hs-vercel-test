@@ -1,0 +1,9 @@
+node_modules
+
+# ENV
+.env*
+!.env.sample
+!.env.*.sample
+
+# package management
+yarn-error.log

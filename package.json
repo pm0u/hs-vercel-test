@@ -14,5 +14,8 @@
   "scripts": {
   },
   "devDependencies": {
+  },
+  "resolutions": {
+    "enhanced-resolve": "5.10.0"
   }
 }

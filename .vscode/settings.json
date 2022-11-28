@@ -1,0 +1,38 @@
+{
+  "eslint.workingDirectories": [
+    "./apps/joinhandshake-web",
+    "./apps/storybook",
+    "./libs/ui-components",
+    "./apps/sanity"
+  ],
+  "files.associations": {
+    "**/apps/joinhandshake-web/**/*.css": "tailwindcss",
+    "**/apps/joinhandshake-web/**/*.module.css": "tailwindcss",
+  },
+  "editor.quickSuggestions": {
+    "strings": "on",
+  },
+  "path-autocomplete.transformations": [
+    {
+      "type": "replace",
+      "parameters": ["(.*)$", "$1.css"],
+      "when": {
+        "fileName": "\\.css$"
+      }
+    }
+  ],
+  "editor.tabSize": 2,
+  "tailwindCSS.experimental.classRegex": [
+    /** 
+     * This is a different Regex than what CVA recommends. This will allow
+     * parentheses to appear in comments without breaking intellisense.
+     * Only caveat is that there can only be whitespace (or nothing) between
+     * the closing `}` and `)` for cva() arguments.
+     */
+    ["cva\\(([\\s\\S]+?)\\}[\\s]*?\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.experimental.configFile": {
+    "apps/joinhandshake-web/tailwind.config.js": "apps/joinhandshake-web/**/*",
+    "libs/ui-components/tailwind.config.js": "libs/ui-components/src/**/*"
+  }
+}

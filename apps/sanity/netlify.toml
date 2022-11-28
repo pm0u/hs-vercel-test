@@ -1,0 +1,13 @@
+[build]
+  publish = 'dist'
+  command = 'yarn build'
+
+[build.environment]
+  NETLIFY_USE_YARN = 'true'
+
+# Needed for proper SPA routing when landing on a page other than '/'
+# @see: https://www.sanity.io/docs/deployment#ed3cd78ea4eb
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200

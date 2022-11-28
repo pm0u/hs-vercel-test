@@ -1,0 +1,6 @@
+[build]
+  command = "./netlify-scripts/build.sh"
+  publish = "storybook-static"
+
+[build.environment]
+  NETLIFY_USE_YARN = 'true'

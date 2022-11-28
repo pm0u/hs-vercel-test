@@ -1,0 +1,17 @@
+[build]
+  publish = ".next"
+  command = "yarn build"
+
+# Prevents Netlify optimization as already performed by NextJS  
+# Netlify recommends disabling
+[build.processing]
+  skip_processing = true
+
+# Use yarn instead of NPM
+[build.environment]
+  NETLIFY_USE_YARN = 'true'
+
+# Enables NextJS builds on Netlify
+# @see https://github.com/netlify/next-runtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

@@ -22,8 +22,7 @@ Default.args = {
 export const Primary = Template.bind({})
 
 Primary.args = {
-  children: "Primary",
-  variant: "primary"
+  children: "Primary"
 }
 
 export const Secondary = Template.bind({})

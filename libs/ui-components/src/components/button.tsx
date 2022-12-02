@@ -23,9 +23,6 @@ const button = cva(['py-4 px-8 rounded-md font-bold shadow-sm'], {
   }
 })
 
-// This change should make web and storybook redeploy...
-// @TODO remove me...
-
 export const Button = ({ children, variant = "primary" }: ButtonProps) => {
   return <button className={button({ variant })}>{children}</button>
 }

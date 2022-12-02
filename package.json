@@ -19,7 +19,10 @@
     "components:dev": "concurrently --kill-others --names 'storybook,components' --prefix-colors 'green,blue' 'yarn storybook:watch' 'yarn ui-components:watch'",
     "web:dev": "yarn workspace @joinhandshake/joinhandshake-web dev",
     "sanity:dev": "yarn workspace @joinhandshake/sanity-studio start",
-    "sanity:build": "yarn workspace @joinhandshake/sanity-studio build"
+    "sanity:build": "yarn workspace @joinhandshake/sanity-studio build",
+    "types": "./scripts/type-check.sh",
+    "lint": "./scripts/lint-check.sh",
+    "lint:fix": "./scripts/lint-fix.sh"
   },
   "devDependencies": {},
   "dependencies": {

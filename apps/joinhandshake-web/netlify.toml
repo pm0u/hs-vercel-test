@@ -1,6 +1,7 @@
 [build]
   publish = ".next"
   command = "yarn build"
+  ignore = "../../scripts/netlify/current-and-deps.sh"
 
 # Prevents Netlify optimization as already performed by NextJS  
 # Netlify recommends disabling

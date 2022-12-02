@@ -1,6 +1,7 @@
 // @ts-check
 const { colors } = require('../../configs/tailwind/main-brand')
-const { spacing: legacySpacing } = require('../../configs/tailwind/legacy')
+const { spacing: legacySpacing, colors: legacyColors } = require('../../configs/tailwind/legacy')
+const { colors: eta2022Colors } = require('../../configs/tailwind/legacy/eta2022')
 const path = require('path')
 
 /**
@@ -28,6 +29,10 @@ module.exports = {
     extend: {
       spacing: {
         ...legacySpacing,
+      },
+      colors: {
+        ...legacyColors,
+        ...eta2022Colors
       }
     }
   },

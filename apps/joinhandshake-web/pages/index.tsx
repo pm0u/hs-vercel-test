@@ -11,7 +11,10 @@ export default function Home() {
       </Head>
 
       <main className="container mx-auto pt-10">
-        <Button variant="primary">test button!</Button>
+        <h1 className="text-4xl font-bold">Testing only!</h1>
+        <p className="text-lg">These button colors are NOT legit at all. Don't use them when building components. Just for testing things right now.</p>
+        <Button variant="primary">primary button!</Button>
+        <Button variant="secondary">secondary button!</Button>
       </main>
     </>
   )

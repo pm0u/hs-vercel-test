@@ -12,13 +12,13 @@ const button = cva(['py-4 px-8 rounded-md font-bold shadow-sm'], {
   variants: {
     variant: {
       primary: [
-        'bg-purple-60',
+        'bg-cyan-90',
         'text-neutral-0'
       ],
       secondary: [
         'bg-lime-30',
         'text-neutral-100'
-      ]
+      ],
     }
   }
 })

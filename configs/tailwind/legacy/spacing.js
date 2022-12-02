@@ -13,5 +13,5 @@ const legacySpacing = {
 }
 
 module.exports = {
-  legacySpacing: prefixTailwindClasses(legacySpacing),
+  legacySpacing: prefixTailwindClasses(legacySpacing, 'legacy-'),
 }

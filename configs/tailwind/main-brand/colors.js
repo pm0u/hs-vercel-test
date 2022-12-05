@@ -3,7 +3,7 @@ const colors = {
     10: "#FFE9EB",
     20: "#FFCACF",
     30: "#FF929D",
-    40: "#FF929D",
+    40: "#FF6272",
     50: "#FF2A40",
     60: "#A31C2A",
     70: "#700C16",
@@ -79,6 +79,20 @@ const colors = {
     90: "#32062C",
   },
 }
+
+
+/**
+ * Define defaults
+ * Allows referencing these colors directly like `bg-magenta`
+ */
+
+colors.red.DEFAULT = colors.red[50]
+colors.lime.DEFAULT = colors.lime[30]
+colors.blue.DEFAULT = colors.blue[40]
+colors.neutral.DEFAULT = colors.neutral[10]
+colors.cyan.DEFAULT = colors.cyan[30]
+colors.purple.DEFAULT = colors.purple[50]
+colors.magenta.DEFAULT = colors.magenta[40]
 
 module.exports = {
   colors

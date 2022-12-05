@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@storybook/addon-docs": "^6.5.14",
     "@storybook/react": "^6.5.13",
     "@types/react": "^18.0.25",
     "class-variance-authority": "^0.3.0",
@@ -19,9 +20,9 @@
     "typescript": "^4.9.3"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "13.0.4",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
-    "@next/eslint-plugin-next": "13.0.4",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",

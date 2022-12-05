@@ -1,6 +1,9 @@
 // @ts-check
 module.exports = {
-  stories: ["../../../libs/ui-components/src/**/*.stories.@(ts|tsx)"],
+  stories: [
+    "../../../libs/ui-components/src/**/*.stories.@(ts|tsx|js|jsx|mdx)",
+    "../../../libs/ui-components/styles/**/*.stories.@(ts|tsx|js|jsx|mdx)",
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

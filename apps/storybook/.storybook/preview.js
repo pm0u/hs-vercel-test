@@ -22,4 +22,9 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: ['Style Guide', ['Main Brand', 'Legacy', 'ETA 2022'], '*', 'Examples']
+    }
+  }
 }

@@ -17,7 +17,7 @@ const button = cva(['py-4 px-8 rounded-md font-bold shadow-sm'], {
       ],
       secondary: [
         'bg-lime-30',
-        'text-neutral-100'
+        'text-neutral-100',
       ],
     }
   }

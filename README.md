@@ -42,7 +42,7 @@ There are recommended extensions set up for this directory, to view/install them
 
 ### Node Version
 
-Use the correct Node version - `v18.2.x`. 
+Use the correct Node version - `v18.12.x`. 
 
 If you use nvm, an .nvmrc is provided so you can simply run `nvm use` in the root of this project to set the correct node version.
 

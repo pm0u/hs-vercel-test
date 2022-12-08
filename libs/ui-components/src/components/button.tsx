@@ -5,7 +5,7 @@ export interface ButtonProps {
   /** Content displayed in the button */
   children: ReactNode
   /** Controls button appearance (color, background, font weight) */
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'accessibility'
 }
 
 const button = cva(['py-4 px-8 rounded-md font-bold shadow-sm'], {
@@ -17,7 +17,11 @@ const button = cva(['py-4 px-8 rounded-md font-bold shadow-sm'], {
       ],
       secondary: [
         'bg-lime-30',
-        'text-neutral-100',
+        'text-lime-100',
+      ],
+      accessibility: [
+        'bg-lime-40',
+        'text-lime-10',
       ],
     }
   }

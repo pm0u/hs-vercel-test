@@ -31,3 +31,10 @@ Secondary.args = {
   children: 'Secondary',
   variant: 'secondary'
 }
+
+export const AccessibilityTest = Template.bind({})
+
+AccessibilityTest.args = {
+  children: 'Accessibility',
+  variant: 'accessibility'
+}

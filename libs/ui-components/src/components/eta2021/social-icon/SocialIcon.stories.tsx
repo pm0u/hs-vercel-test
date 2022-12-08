@@ -1,14 +1,14 @@
-import React from 'react'
-import { SocialIcon } from './index'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import React from "react"
+import { SocialIcon } from "./index"
+import { ComponentMeta, ComponentStory } from "@storybook/react"
 
 export default {
-  title: 'Components/ETA 2021/Social Icon',
+  title: "Components/ETA 2021/Social Icon",
   component: SocialIcon,
 } as ComponentMeta<typeof SocialIcon>
 
 const Template: ComponentStory<typeof SocialIcon> = ({
-  className = '',
+  className = "",
   ...args
 }) => (
   <div className="mx-auto w-min">
@@ -19,24 +19,24 @@ const Template: ComponentStory<typeof SocialIcon> = ({
 export const Twitter = Template.bind({})
 
 Twitter.args = {
-  icon: 'twitter'
+  icon: "twitter",
 }
 
 export const Facebook = Template.bind({})
 
 Facebook.args = {
-  icon: 'facebook'
+  icon: "facebook",
 }
 
 export const LinkedIn = Template.bind({})
 
 LinkedIn.args = {
-  icon: 'linkedin'
+  icon: "linkedin",
 }
 
 export const colored = Template.bind({})
 
 colored.args = {
-  icon: 'linkedin',
-  className: 'text-lime-60'
+  icon: "linkedin",
+  className: "text-lime-60",
 }

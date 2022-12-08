@@ -13,5 +13,7 @@ echo -e "${green}${bold}Linting web...${reset}"
 yarn --silent workspace @joinhandshake/joinhandshake-web lint || ERR=1
 echo -e "${green}${bold}Linting ui components...${reset}"
 yarn --silent workspace @joinhandshake/ui-components lint || ERR=1
+echo -e "${green}${bold}Linting sanity studio...${reset}"
+yarn --silent workspace @joinhandshake/sanity-studio lint || ERR=1
 
 exit $ERR

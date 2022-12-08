@@ -19,14 +19,14 @@ if [[ "$CHANGED" ]]; then
 fi
 
 if [[ "$PROCEED" = "y" || $PROCEED = "Y" ]]; then
-  echo -e "${blue}${bold}Linting...${reset}"
-  echo -e "${green}${bold}Linting web...${reset}"
-  yarn --silent workspace @joinhandshake/joinhandshake-web lint:fix
-  echo -e "${green}${bold}Linting ui components...${reset}"
-  yarn --silent workspace @joinhandshake/ui-components lint:fix
-  echo -e "${green}${bold}Linting sanity studio...${reset}"
-  yarn --silent workspace @joinhandshake/sanity-studio lint:fix
+  echo -e "${blue}${bold}Formatting...${reset}"
+  echo -e "${green}${bold}Formatting web...${reset}"
+  yarn --silent workspace @joinhandshake/joinhandshake-web format:fix
+  echo -e "${green}${bold}Formatting ui components...${reset}"
+  yarn --silent workspace @joinhandshake/ui-components format:fix
+  echo -e "${green}${bold}Formatting sanity studio...${reset}"
+  yarn --silent workspace @joinhandshake/sanity-studio format:fix
   exit
 fi
 
-echo -e "${red}Linting aborted${reset}"
+echo -e "${red}Formatting aborted${reset}"

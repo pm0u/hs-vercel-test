@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 export const Twitter = (props: React.HTMLAttributes<SVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 416.1" {...props}>

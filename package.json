@@ -22,7 +22,11 @@
     "sanity:build": "yarn workspace @joinhandshake/sanity-studio build",
     "types": "./scripts/type-check.sh",
     "lint": "./scripts/lint-check.sh",
-    "lint:fix": "./scripts/lint-fix.sh"
+    "lint:fix": "./scripts/lint-fix.sh",
+    "format": "./scripts/format-check.sh",
+    "format:fix": "./scripts/format-fix.sh",
+    "styles": "./scripts/styles-check.sh",
+    "styles:fix": "./scripts/styles-fix.sh"
   },
   "devDependencies": {},
   "dependencies": {

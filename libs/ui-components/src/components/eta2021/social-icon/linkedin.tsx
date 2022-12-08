@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 export const LinkedIn = (props: React.HTMLAttributes<SVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147.3 147" {...props}>

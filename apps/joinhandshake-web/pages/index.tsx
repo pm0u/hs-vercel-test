@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import { Button } from '@joinhandshake/ui-components'
+import Head from "next/head"
+import { Button } from "@joinhandshake/ui-components"
 
 export default function Home() {
   return (
@@ -12,7 +12,10 @@ export default function Home() {
 
       <main className="container mx-auto pt-10">
         <h1 className="text-4xl font-bold">Testing only!</h1>
-        <p className="text-lg">These button colors are NOT legit at all. Don&apos;t use them when building components. Just for testing things right now.</p>
+        <p className="text-lg">
+          These button colors are NOT legit at all. Don&apos;t use them when
+          building components. Just for testing things right now.
+        </p>
         <Button variant="primary">primary button!</Button>
         <Button variant="secondary">secondary button!</Button>
       </main>

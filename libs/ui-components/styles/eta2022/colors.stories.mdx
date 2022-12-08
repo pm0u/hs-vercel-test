@@ -1,35 +1,32 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs'
-import resolveConfig from 'tailwindcss/resolveConfig'
-import { eta2022Colors } from '../../../../configs/tailwind/legacy/eta2022/colors'
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs"
+import resolveConfig from "tailwindcss/resolveConfig"
+import { eta2022Colors } from "../../../../configs/tailwind/legacy/eta2022/colors"
 
 <Meta title="Style Guide/ETA 2022/Colors" />
 
 # Full Color Palette
 
 <ColorPalette>
-  <ColorItem 
+  <ColorItem
     title="Colors"
     subtitle="There are no shades, only individual colors"
-    colors={Object.entries(resolveConfig({theme: { colors: eta2022Colors }}).theme.colors)
+    colors={Object.entries(
+      resolveConfig({ theme: { colors: eta2022Colors } }).theme.colors
+    )
       .map(([colorName, colorValues]) => {
-        if (typeof colorValues === 'string') {
-          return [
-            `${colorName}`,
-            colorValues
-          ]
+        if (typeof colorValues === "string") {
+          return [`${colorName}`, colorValues]
         }
-        const defaultKey = Object.keys(colorValues).find(colorShade => colorValues[colorShade] === colorValues.DEFAULT)
-        return [
-          `${colorName}-${defaultKey}`,
-          colorValues.DEFAULT
-        ]
+        const defaultKey = Object.keys(colorValues).find(
+          (colorShade) => colorValues[colorShade] === colorValues.DEFAULT
+        )
+        return [`${colorName}-${defaultKey}`, colorValues.DEFAULT]
       })
       .reduce((obj, colorPair, ci, arr) => {
         return {
           ...obj,
-          [colorPair[0]]: colorPair[1]
+          [colorPair[0]]: colorPair[1],
         }
-      }, {}
-    )}
+      }, {})}
   />
 </ColorPalette>

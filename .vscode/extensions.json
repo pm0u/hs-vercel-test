@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "sanity-io.vscode-sanity",
+    "bradlc.vscode-tailwindcss",
+    "clinyong.vscode-css-modules",
+    "cpylua.language-postcss",
+    "ionutvmi.path-autocomplete",
+    "stylelint.vscode-stylelint",
+    "esbenp.prettier-vscode"
+  ]
+}

@@ -36,9 +36,9 @@ const button = cva(
 export const ETA2021Button = ({ children, color = 'blue', size = 'large', href = '' }: ETA2021ButtonProps) => {
   return (
     // NOTE: assumption below that if href starts with '/' it is internal and will not open in a new tab
-    <Link href={href} target={href.startsWith('/') ? "" : "_blank" } className="bg-neutral-100 block">
-      <span className={button({color, size})}>
-        {children}
+    <Link href={href} target={href.startsWith('/') ? "" : "_blank" }>
+      <span className="bg-neutral-100 block">
+        <span className={button({color, size})}>{children}</span>
       </span>
     </Link>
   );

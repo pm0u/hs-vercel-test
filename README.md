@@ -42,7 +42,7 @@ There are recommended extensions set up for this directory, to view/install them
 
 ### Node Version
 
-Use the correct Node version - `v18.20.x`. 
+Use the correct Node version - `v18.12.x`. 
 
 If you use nvm, an .nvmrc is provided so you can simply run `nvm use` in the root of this project to set the correct node version.
 
@@ -73,3 +73,15 @@ Commands that run multiple tasks should make use of [concurrently](https://https
 `yarn components:dev` - runs both the watch commands for the ui-component library and storybook as well as opens storybook in a browser
 
 `yarn web:dev` - runs the next server in dev mode
+
+#### Formatting, Linting, and checks
+
+This repo utilizes Github workflows to check formatting and errors. These checks can be run locally as well either per package or at the root to check all applicable packages:
+
+`yarn lint` and `yarn lint:fix` - check or fix ESLint errors
+
+`yarn styles` and `yarn styles:fix` - check or fix Stylelint errors
+
+`yarn format` and `yarn format:fix` - check or fix Prettier formatting errors
+
+`yarn types` - check for TS errors

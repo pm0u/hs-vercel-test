@@ -24,7 +24,9 @@ if [[ "$PROCEED" = "y" || $PROCEED = "Y" ]]; then
   yarn --silent workspace @joinhandshake/joinhandshake-web lint:fix
   echo -e "${green}${bold}Linting ui components...${reset}"
   yarn --silent workspace @joinhandshake/ui-components lint:fix
+  echo -e "${green}${bold}Linting sanity studio...${reset}"
+  yarn --silent workspace @joinhandshake/sanity-studio lint:fix
   exit
 fi
 
-echo -e "${blue}Linting aborted${reset}"
+echo -e "${red}Linting aborted${reset}"

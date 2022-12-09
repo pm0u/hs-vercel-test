@@ -1,5 +1,4 @@
-// @ts-check
-import "@joinhandshake/ui-components/dist/style.css"
+import "@joinhandshake/ui-components/styles"
 import React from 'react'
 import * as NextImage from "next/image";
 

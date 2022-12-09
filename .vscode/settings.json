@@ -8,6 +8,8 @@
   "files.associations": {
     "**/apps/joinhandshake-web/**/*.css": "tailwindcss",
     "**/apps/joinhandshake-web/**/*.module.css": "tailwindcss",
+    "**/libs/ui-components/**/*.css": "tailwindcss",
+    "**/libs/ui-components/**/*.module.css": "tailwindcss",
   },
   "editor.quickSuggestions": {
     "strings": "on",
@@ -34,5 +36,13 @@
   "tailwindCSS.experimental.configFile": {
     "apps/joinhandshake-web/tailwind.config.js": "apps/joinhandshake-web/**/*",
     "libs/ui-components/tailwind.config.js": "libs/ui-components/src/**/*"
-  }
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "tailwindcss"
+  ]
 }

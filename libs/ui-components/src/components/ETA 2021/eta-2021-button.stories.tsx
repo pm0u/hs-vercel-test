@@ -1,10 +1,10 @@
 import React from 'react'
-import { Button } from './button'
+import { Button } from '../button'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ETA2021Button } from './eta-2021-button'
 
 export default {
-  title: 'Examples/ETA 2021 Button',
+  title: 'Components/ETA 2021/Button',
   component: ETA2021Button,
 } as ComponentMeta<typeof ETA2021Button>
 
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof ETA2021Button> = (args) => (
 export const Blue = Template.bind({})
 
 Blue.args = {
-  label: 'Blue',
+  children: 'See if you\'ve won',
   color: 'blue',
   size: 'large'
 }
@@ -25,23 +25,23 @@ Blue.args = {
 export const Green = Template.bind({})
 
 Green.args = {
-  label: 'Green',
+  children: 'Watch the event',
   color: 'green',
   size: 'large'
 }
 
-export const White = Template.bind({})
+export const WhiteSmall = Template.bind({})
 
-White.args = {
-  label: 'White',
+WhiteSmall.args = {
+  children: 'See the winners',
   color: 'white',
-  size: 'large',
+  size: 'small',
 }
 
 export const Yellow = Template.bind({})
 
 Yellow.args = {
-  label: 'Yellow',
+  children: 'Share on LinkedIn!',
   color: 'yellow',
   size: 'large'
 }

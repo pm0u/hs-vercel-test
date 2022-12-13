@@ -20,6 +20,9 @@ module.exports = {
         ...legacyColors,
         ...eta2022Colors,
       },
+      transitionDuration: {
+        30: "30ms",
+      },
     },
   },
   plugins: [],

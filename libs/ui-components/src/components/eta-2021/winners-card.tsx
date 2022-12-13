@@ -1,10 +1,9 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { cva } from "class-variance-authority"
-import Link from "next/link"
 import { ETA2021Button } from "./button"
 
 export interface WinnersCardProps {
-  /** Background color for the card*/
+  /** Background color for the card */
   color: "coral" | "periwinkle" | "lightBlue" | "lightGreen" | "yellow"
   title: string
   /** URL to the image file */
@@ -46,7 +45,7 @@ export const ETA2021WinnersCard = ({
           ></ETA2021Button>
         </div>
         <div>
-          <img src={icon} className="h-10" />
+          <img alt="" src={icon} className="h-10" />
         </div>
       </div>
     </div>

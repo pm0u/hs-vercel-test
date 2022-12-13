@@ -17,7 +17,7 @@ export const Card = Template.bind({})
 
 Card.args = {
   color: "coral",
-  title: 'Accounting',
-  link: 'See the winners!',
-  icon: 'https://i0.wp.com/joinhandshake.com/wp-content/uploads/2021/03/eta-industry-accounting-1.png?resize=150%2C150&ssl=1',
+  title: "Accounting",
+  link: "See the winners!",
+  icon: "https://i0.wp.com/joinhandshake.com/wp-content/uploads/2021/03/eta-industry-accounting-1.png?resize=150%2C150&ssl=1",
 }

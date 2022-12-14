@@ -3,7 +3,7 @@ const { colors } = require("../../configs/tailwind/main-brand")
 const {
   colors: legacyColors,
   screens: legacyScreens,
-  spacing: legacySpacing
+  spacing: legacySpacing,
 } = require("../../configs/tailwind/legacy")
 const {
   colors: eta2022Colors,
@@ -35,14 +35,14 @@ module.exports = {
     extend: {
       colors: {
         ...legacyColors,
-        ...eta2022Colors
+        ...eta2022Colors,
       },
       screens: {
-        ...legacyScreens
+        ...legacyScreens,
       },
       spacing: {
-        ...legacySpacing
-      }
+        ...legacySpacing,
+      },
     },
   },
   plugins: [],

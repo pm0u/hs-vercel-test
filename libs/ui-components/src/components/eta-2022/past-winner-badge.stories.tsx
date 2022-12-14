@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ETA2022PastWinnerBadge } from "./past-winner-badge"
 
 export default {
-  title: "Components/WinnerBadge",
+  title: "Components",
   component: ETA2022PastWinnerBadge,
 } as ComponentMeta<typeof ETA2022PastWinnerBadge>
 
@@ -13,4 +13,4 @@ const Template: ComponentStory<typeof ETA2022PastWinnerBadge> = (args) => (
   </div>
 )
 
-export const Badge = Template.bind({})
+export const PastWinnerBadge = Template.bind({})

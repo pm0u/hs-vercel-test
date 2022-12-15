@@ -1,7 +1,9 @@
-const { legacySpacing }  = require("./spacing")
 const { legacyColors } = require("./colors")
+const { legacyScreens } = require("./screens")
+const { legacySpacing }  = require("./spacing")
 
 module.exports = {
-  spacing: legacySpacing,
   colors: legacyColors,
+  screens: legacyScreens,
+  spacing: legacySpacing
 }

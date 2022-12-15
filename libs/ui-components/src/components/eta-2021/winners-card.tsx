@@ -45,7 +45,7 @@ export const ETA2021WinnersCard = ({
           >{link}</ETA2021Button>
         </div>
         <div>
-          <Image unoptimized width="40" height="40" alt="" src={icon}></Image>
+          <Image width="40" height="40" alt="" src={icon}></Image>
         </div>
       </div>
     </div>

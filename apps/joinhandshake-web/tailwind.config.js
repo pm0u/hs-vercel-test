@@ -32,13 +32,13 @@ module.exports = {
   ],
   theme: {
     colors,
+    screens: {
+      ...legacyScreens,
+    },
     extend: {
       colors: {
         ...legacyColors,
         ...eta2022Colors,
-      },
-      screens: {
-        ...legacyScreens,
       },
       spacing: {
         ...legacySpacing,

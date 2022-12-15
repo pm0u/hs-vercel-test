@@ -16,17 +16,17 @@ const Template: ComponentStory<typeof ETA2022SocialTile> = (args) => (
 export const LinkedIn = Template.bind({})
 
 LinkedIn.args = {
-  icon: "linkedin"
+  icon: "linkedin",
 }
 
 export const Twitter = Template.bind({})
 
 Twitter.args = {
-  icon: "twitter"
+  icon: "twitter",
 }
 
 export const Facebook = Template.bind({})
 
 Facebook.args = {
-  icon: "facebook"
+  icon: "facebook",
 }

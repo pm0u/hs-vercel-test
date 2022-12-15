@@ -1,4 +1,3 @@
-import Link from "next/link"
 import React from "react"
 import { SocialIcon } from "../base/social-icon"
 
@@ -8,7 +7,7 @@ export interface ETA2022SocialTileProps {
 }
 
 export const ETA2022SocialTile = ({
-  icon = "linkedin"
+  icon = "linkedin",
 }: ETA2022SocialTileProps) => {
   return (
     <div className="bg-legacy-purple rounded-md h-12 w-12 p-3 text-neutral-0 flex items-center transform duration-30 hover:scale-105 hover:opacity-90 cursor-pointer">

@@ -4,8 +4,18 @@ import {StorybookConfig} from '@storybook/react/types'
 const config: StorybookConfig = {
   stories: [
     {
+      directory: "../../../libs/ui-components/src/components/base",
+      titlePrefix: "Components",
+      files: "**/*.stories.*"
+    },
+    {
       directory: "../../../libs/ui-components/src/components/eta-2021",
       titlePrefix: "ETA 2021",
+      files: "**/*.stories.*"
+    },
+    {
+      directory: "../../../libs/ui-components/src/components/eta-2022",
+      titlePrefix: "ETA 2022",
       files: "**/*.stories.*"
     },
     {

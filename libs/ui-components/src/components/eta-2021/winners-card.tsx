@@ -38,11 +38,9 @@ export const ETA2021WinnersCard = ({
       <h3 className="mb-10">{title}</h3>
       <div className="flex justify-between">
         <div className="pr-5">
-          <ETA2021Button
-            color="white"
-            size="small"
-            href={href}
-          >{link}</ETA2021Button>
+          <ETA2021Button color="white" size="small" href={href}>
+            {link}
+          </ETA2021Button>
         </div>
         <div>
           <Image width="40" height="40" alt="" src={icon}></Image>

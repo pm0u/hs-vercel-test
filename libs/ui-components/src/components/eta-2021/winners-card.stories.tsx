@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ETA2021WinnersCard } from "./winners-card"
 
 export default {
-  title: "Components/Winners Card",
+  title: "Components",
   component: ETA2021WinnersCard,
 } as ComponentMeta<typeof ETA2021WinnersCard>
 
@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof ETA2021WinnersCard> = (args) => (
   </div>
 )
 
-export const Card = Template.bind({})
+export const WinnersCard = Template.bind({})
 
-Card.args = {
+WinnersCard.args = {
   color: "coral",
   title: "Accounting",
   link: "See the winners!",

@@ -1,6 +1,7 @@
 import React from "react"
 import { cva } from "class-variance-authority"
 import { ETA2021Button } from "./button"
+import Image from "next/image"
 
 export interface WinnersCardProps {
   /** Background color for the card */
@@ -38,14 +39,13 @@ export const ETA2021WinnersCard = ({
       <div className="flex justify-between">
         <div className="pr-5">
           <ETA2021Button
-            children={link}
             color="white"
             size="small"
             href={href}
-          ></ETA2021Button>
+          >{link}</ETA2021Button>
         </div>
         <div>
-          <img alt="" src={icon} className="h-10" />
+          <Image unoptimized width="40" height="40" alt="" src={icon}></Image>
         </div>
       </div>
     </div>

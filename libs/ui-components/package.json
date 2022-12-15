@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./eta-2021": "./src/components/eta-2021/index.ts",
+    "./eta-2022": "./src/components/eta-2022/index.ts",
     "./styles": "./dist/style.css"
   },
   "license": "MIT",

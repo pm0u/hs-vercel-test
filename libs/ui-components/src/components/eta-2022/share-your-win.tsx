@@ -7,13 +7,13 @@ export const ETA2022ShareYourWin = () => {
       <p className="text-xs font-bold mb-3">SHARE YOUR WIN</p>
       <div className="flex">
         <span className="pr-2">
-          <ETA2022SocialTile icon="linkedin" />
+          <ETA2022SocialTile icon="linkedin" href="https://linkedin.com" />
         </span>
         <span className="pr-2">
-          <ETA2022SocialTile icon="twitter" />
+          <ETA2022SocialTile icon="twitter" href="http://twitter.com" />
         </span>
         <span>
-          <ETA2022SocialTile icon="facebook" />
+          <ETA2022SocialTile icon="facebook" href="https://facebook.com" />
         </span>
       </div>
     </div>

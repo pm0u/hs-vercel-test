@@ -17,19 +17,19 @@ export const LinkedIn = Template.bind({})
 
 LinkedIn.args = {
   icon: "linkedin",
-  href: "https://linkedin.com"
+  href: "https://linkedin.com",
 }
 
 export const Twitter = Template.bind({})
 
 Twitter.args = {
   icon: "twitter",
-  href: "https://twitter.com"
+  href: "https://twitter.com",
 }
 
 export const Facebook = Template.bind({})
 
 Facebook.args = {
   icon: "facebook",
-  href: "https://facebook.com"
+  href: "https://facebook.com",
 }

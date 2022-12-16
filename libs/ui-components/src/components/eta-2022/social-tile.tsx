@@ -20,10 +20,8 @@ export const ETA2022SocialTile = ({
        Suggested best practice is to wrap the component in an anchor element
        https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-functional-component
        */}
-      <Link href={href} passHref>
-        <a target="_blank" className="h-full w-full flex">
-          <SocialIcon className="p-3" icon={icon}></SocialIcon>
-        </a>
+      <Link href={href} target="_blank" className="h-full w-full flex items-center">
+        <SocialIcon className="p-3" icon={icon}></SocialIcon>
       </Link>
     </div>
   )

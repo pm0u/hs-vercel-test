@@ -1,5 +1,6 @@
 
 import {StorybookConfig} from '@storybook/react/types'
+import * as webpack from "webpack";
 
 const config: StorybookConfig = {
   stories: [
@@ -34,6 +35,15 @@ const config: StorybookConfig = {
   core: {
     builder: "@storybook/builder-webpack5",
   },
+  webpackFinal: async (c) => {
+    c.plugins?.push(
+      new webpack.DefinePlugin({
+        'process.env.__NEXT_NEW_LINK_BEHAVIOR': true,
+      })
+    )
+
+    return c
+  }
 }
 
 module.exports = config

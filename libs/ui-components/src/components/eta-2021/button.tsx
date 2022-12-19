@@ -15,7 +15,7 @@ export interface ETA2021ButtonProps {
 
 const button = cva(
   [
-    "block cursor-pointer py-4 px-8 whitespace-nowrap",
+    "block cursor-pointer py-legacy-4 px-legacy-8 whitespace-nowrap",
     "border border-neutral-100 transform duration-30",
     "translate-x-1 -translate-y-1 hover:transform-none",
   ],
@@ -37,13 +37,13 @@ const button = cva(
 
 export const ETA2021Button = ({
   children,
+  href,
   color = "blue",
   size = "large",
-  href = "",
 }: ETA2021ButtonProps) => {
   return (
     // NOTE: assumption below that if href starts with '/' it is internal and will not open in a new tab
-    <Link href={href} target={href.startsWith("/") ? "" : "_blank"}>
+    <Link href={href} target={href?.startsWith("/") ? "" : "_blank"}>
       <span className="bg-neutral-100 block">
         <span className={button({ color, size })}>{children}</span>
       </span>

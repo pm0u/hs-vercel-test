@@ -9,8 +9,7 @@ export interface WinnersCardProps {
   title: string
   /** URL to the image file */
   icon: string
-  /** Label text for button */
-  link: string
+  buttonText: string
   href: string
 }
 
@@ -26,25 +25,17 @@ const card = cva(["p-8"], {
   },
 })
 
-export const ETA2021WinnersCard = ({
-  color = "coral",
-  title = "",
-  link = "",
-  href = "",
-  icon = "",
-}: WinnersCardProps) => {
+export const ETA2021WinnersCard = (props: WinnersCardProps) => {
   return (
-    <div className={card({ color })}>
-      <h3 className="mb-10">{title}</h3>
+    <div className={card({ color: props.color  })}>
+      <h3 className="mb-legacy-10 text-xl legacy-xs:text-2xl legacy-lg:text-3xl">{props.title}</h3>
       <div className="flex justify-between">
-        <div className="pr-5">
-          <ETA2021Button color="white" size="small" href={href}>
-            {link}
+        <div className="pr-legacy-5">
+          <ETA2021Button color="white" size="small" href={props.href}>
+            {props.buttonText}
           </ETA2021Button>
         </div>
-        <div>
-          <Image width="40" height="40" alt="" src={icon}></Image>
-        </div>
+        <Image width="40" height="40" alt="" src={props.icon}></Image>
       </div>
     </div>
   )

@@ -18,6 +18,7 @@ export const WinnersCard = Template.bind({})
 WinnersCard.args = {
   color: "coral",
   title: "Accounting",
-  link: "See the winners!",
-  icon: "https://i0.wp.com/joinhandshake.com/wp-content/uploads/2021/03/eta-industry-accounting-1.png?resize=150%2C150&ssl=1",
+  buttonText: "See the winners!",
+  href: "https://www.joinhandshake.com",
+  icon: "https://i0.wp.com/joinhandshake.com/wp-content/uploads/2021/03/eta-industry-accounting-1.png?resize=150%2C150&ssl=1"
 }

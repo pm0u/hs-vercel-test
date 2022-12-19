@@ -27,8 +27,10 @@ const card = cva(["p-8"], {
 
 export const ETA2021WinnersCard = (props: WinnersCardProps) => {
   return (
-    <div className={card({ color: props.color  })}>
-      <h3 className="mb-legacy-10 text-xl legacy-xs:text-2xl legacy-lg:text-3xl">{props.title}</h3>
+    <div className={card({ color: props.color })}>
+      <h3 className="mb-legacy-10 text-xl legacy-xs:text-2xl legacy-lg:text-3xl">
+        {props.title}
+      </h3>
       <div className="flex justify-between">
         <div className="pr-legacy-5">
           <ETA2021Button color="white" size="small" href={props.href}>

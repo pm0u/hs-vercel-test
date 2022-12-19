@@ -1,8 +1,9 @@
 // @ts-check
 const { colors } = require("../../configs/tailwind/main-brand")
 const {
-  spacing: legacySpacing,
   colors: legacyColors,
+  screens: legacyScreens,
+  spacing: legacySpacing,
 } = require("../../configs/tailwind/legacy")
 const {
   colors: eta2022Colors,
@@ -31,13 +32,16 @@ module.exports = {
   ],
   theme: {
     colors,
+    screens: {
+      ...legacyScreens,
+    },
     extend: {
-      spacing: {
-        ...legacySpacing,
-      },
       colors: {
         ...legacyColors,
         ...eta2022Colors,
+      },
+      spacing: {
+        ...legacySpacing,
       },
     },
   },

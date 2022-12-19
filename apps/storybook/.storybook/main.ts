@@ -9,6 +9,11 @@ const config: StorybookConfig = {
       files: "**/*.stories.*"
     },
     {
+      directory: "../../../libs/ui-components/src/components/eta-2022",
+      titlePrefix: "ETA 2022",
+      files: "**/*.stories.*"
+    },
+    {
       directory: '../../../libs/ui-components/style-guide',
       titlePrefix: "Style Guide",
       files: '**/*.stories.*',

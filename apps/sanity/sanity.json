@@ -4,8 +4,8 @@
     "name": "Handshake Studio"
   },
   "api": {
-    "projectId": "eovljgf7",
-    "dataset": "production"
+    "projectId": "mz2hls6g",
+    "dataset": "staging"
   },
   "plugins": [
     "@sanity/base",

@@ -1,4 +1,6 @@
-export const etaWinner2021 = {
+import { DocumentDefinition } from "sanity"
+
+export const etaWinner2021: DocumentDefinition = {
   name: "etaWinners2021",
   type: "document",
   title: "ETA 2021 Winners",

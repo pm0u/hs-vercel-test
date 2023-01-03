@@ -1,4 +1,6 @@
-export const etaIndustry2021 = {
+import { DocumentDefinition } from "sanity"
+
+export const etaIndustry2021: DocumentDefinition = {
   name: "etaIndustry2021",
   type: "document",
   title: "ETA 2021 Industries",

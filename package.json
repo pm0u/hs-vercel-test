@@ -18,7 +18,7 @@
     "ui-components:build": "yarn workspace @joinhandshake/ui-components build",
     "components:dev": "concurrently --kill-others --names 'storybook,components' --prefix-colors 'green,blue' 'yarn storybook:watch' 'yarn ui-components:watch'",
     "web:dev": "yarn workspace @joinhandshake/joinhandshake-web dev",
-    "sanity:dev": "yarn workspace @joinhandshake/sanity-studio start",
+    "sanity:dev": "yarn workspace @joinhandshake/sanity-studio dev",
     "sanity:build": "yarn workspace @joinhandshake/sanity-studio build",
     "types": "./scripts/type-check.sh",
     "lint": "./scripts/lint-check.sh",

@@ -1,7 +1,14 @@
-import { StorybookConfig } from "@storybook/react/types";
+
+import { StorybookConfig } from '@storybook/react/types'
+import * as webpack from "webpack";
 
 const config: StorybookConfig = {
   stories: [
+    {
+      directory: "../../../libs/ui-components/src/components/base",
+      titlePrefix: "Components",
+      files: "**/*.stories.*"
+    },
     {
       directory: "../../../libs/ui-components/src/components/eta-2021",
       titlePrefix: "ETA 2021",
@@ -33,6 +40,15 @@ const config: StorybookConfig = {
   core: {
     builder: "@storybook/builder-webpack5",
   },
+  webpackFinal: async (c) => {
+    c.plugins?.push(
+      new webpack.DefinePlugin({
+        'process.env.__NEXT_NEW_LINK_BEHAVIOR': true,
+      })
+    )
+
+    return c
+  }
 };
 
 module.exports = config;

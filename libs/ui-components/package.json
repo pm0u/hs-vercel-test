@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "UI Component Library",
   "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components": "./src/components/index.ts",
+    "./eta-2021": "./src/components/eta-2021/index.ts",
+    "./eta-2022": "./src/components/eta-2022/index.ts",
+    "./styles": "./dist/style.css"
+  },
   "license": "MIT",
   "private": true,
   "dependencies": {

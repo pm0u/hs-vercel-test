@@ -3,7 +3,7 @@ import { SocialIcon } from "./index"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 
 export default {
-  title: "Components/Social Icon",
+  title: "Social Icon",
   component: SocialIcon,
 } as ComponentMeta<typeof SocialIcon>
 

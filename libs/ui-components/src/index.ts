@@ -1,4 +1,2 @@
-import { Button } from "./components/button"
-import { SocialIcon } from "./components/base/social-icon"
-
-export { Button, SocialIcon }
+export * from "./contexts"
+export * from "./components"

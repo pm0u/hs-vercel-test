@@ -1,5 +1,5 @@
 
-import {StorybookConfig} from '@storybook/react/types'
+import { StorybookConfig } from '@storybook/react/types'
 import * as webpack from "webpack";
 
 const config: StorybookConfig = {
@@ -12,24 +12,29 @@ const config: StorybookConfig = {
     {
       directory: "../../../libs/ui-components/src/components/eta-2021",
       titlePrefix: "ETA 2021",
-      files: "**/*.stories.*"
+      files: "**/*.stories.*",
     },
     {
       directory: "../../../libs/ui-components/src/components/eta-2022",
       titlePrefix: "ETA 2022",
-      files: "**/*.stories.*"
+      files: "**/*.stories.*",
     },
     {
-      directory: '../../../libs/ui-components/style-guide',
+      directory: "../../../libs/ui-components/style-guide",
       titlePrefix: "Style Guide",
-      files: '**/*.stories.*',
-    }
+      files: "**/*.stories.*",
+    },
+    {
+      directory: "../../../libs/ui-components/src/components/base",
+      titlePrefix: "Base",
+      files: "**/*.stories.*",
+    },
   ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    '@storybook/addon-a11y',
+    "@storybook/addon-a11y",
   ],
   framework: "@storybook/react",
   core: {
@@ -44,6 +49,6 @@ const config: StorybookConfig = {
 
     return c
   }
-}
+};
 
-module.exports = config
+module.exports = config;

@@ -7,6 +7,15 @@ const withTM = require("next-transpile-modules")([
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        hostname: "cdn.sanity.io",
+        protocol: "https",
+        pathname: `images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/**`,
+      },
+    ],
+  },
 }
 
 module.exports = withTM(nextConfig)

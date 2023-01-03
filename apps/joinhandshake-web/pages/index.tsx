@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Button } from "@joinhandshake/ui-components"
+import { ExampleButton } from "@joinhandshake/ui-components"
 
 export default function Home() {
   return (
@@ -16,8 +16,8 @@ export default function Home() {
           These button colors are NOT legit at all. Don&apos;t use them when
           building components. Just for testing things right now.
         </p>
-        <Button variant="primary">primary button!</Button>
-        <Button variant="secondary">secondary button!</Button>
+        <ExampleButton variant="primary">primary button!</ExampleButton>
+        <ExampleButton variant="secondary">secondary button!</ExampleButton>
       </main>
     </>
   )

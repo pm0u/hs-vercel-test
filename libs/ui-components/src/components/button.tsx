@@ -18,6 +18,9 @@ const button = cva(["py-4 px-8 rounded-md font-bold shadow-sm"], {
   },
 })
 
-export const Button = ({ children, variant = "primary" }: ButtonProps) => {
+export const ExampleButton = ({
+  children,
+  variant = "primary",
+}: ButtonProps) => {
   return <button className={button({ variant })}>{children}</button>
 }

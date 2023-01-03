@@ -1,15 +1,15 @@
 import React from "react"
-import { Button } from "./button"
+import { ExampleButton } from "./button"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 
 export default {
   title: "Examples/Button",
-  component: Button,
-} as ComponentMeta<typeof Button>
+  component: ExampleButton,
+} as ComponentMeta<typeof ExampleButton>
 
-const Template: ComponentStory<typeof Button> = (args) => (
+const Template: ComponentStory<typeof ExampleButton> = (args) => (
   <div className="mx-auto w-min">
-    <Button {...args} />
+    <ExampleButton {...args} />
   </div>
 )
 

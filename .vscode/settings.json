@@ -44,5 +44,6 @@
     "css",
     "postcss",
     "tailwindcss"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

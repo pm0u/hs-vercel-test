@@ -6,4 +6,7 @@ module.exports = {
     "comma-dangle": 0,
     "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
   },
+  env: {
+    "esnext": true
+  }
 }

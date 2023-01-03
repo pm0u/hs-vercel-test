@@ -5,6 +5,7 @@
  * If prefix is for a single page or microsite, use the page/microsite name as the prefix
  * If prefix can be used sitewide use default "legacy-"
  * This is to preserve/namespace the full tailwind spacing system for the legacy sites
+ * @param tailwindConfigObject {Record<string, any>}
  */
 
 const prefixTailwindClasses = (tailwindConfigObject, prefix = 'legacy-') => ({

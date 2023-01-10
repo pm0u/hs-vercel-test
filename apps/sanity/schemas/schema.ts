@@ -1,3 +1,4 @@
 import { documents } from "./documents"
+import { objects } from "./objects"
 
-export default [...documents]
+export default [...objects, ...documents]

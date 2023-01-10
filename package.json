@@ -8,15 +8,11 @@
     "node": ">=18 <19"
   },
   "workspaces": [
-    "apps/*",
-    "libs/*"
+    "apps/*"
   ],
   "scripts": {
-    "storybook:watch": "yarn workspace @joinhandshake/storybook storybook",
-    "storybook:build": "yarn workspace @joinhandshake/storybook build-storybook",
-    "ui-components:watch": "yarn workspace @joinhandshake/ui-components watch",
-    "ui-components:build": "yarn workspace @joinhandshake/ui-components build",
-    "components:dev": "concurrently --kill-others --names 'storybook,components' --prefix-colors 'green,blue' 'yarn storybook:watch' 'yarn ui-components:watch'",
+    "storybook:dev": "yarn workspace @joinhandshake/joinhandshake-web storybook:dev",
+    "storybook:build": "yarn workspace @joinhandshake/joinhandshake-web storybook:build",
     "web:dev": "yarn workspace @joinhandshake/joinhandshake-web dev",
     "sanity:dev": "yarn workspace @joinhandshake/sanity-studio dev",
     "sanity:build": "yarn workspace @joinhandshake/sanity-studio build",
@@ -28,9 +24,7 @@
     "styles": "./scripts/styles-check.sh",
     "styles:fix": "./scripts/styles-fix.sh"
   },
-  "devDependencies": {},
-  "dependencies": {
-    "concurrently": "^7.6.0",
+  "devDependencies": {
     "tailwindcss": "^3.2.4"
   }
 }

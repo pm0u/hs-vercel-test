@@ -11,10 +11,6 @@ ERR=0
 echo -e "${blue}${bold}Checking types...${reset}"
 echo -e "${green}${bold}Checking web...${reset}"
 yarn --silent workspace @joinhandshake/joinhandshake-web types || ERR=1
-echo -e "${green}${bold}Checking ui components...${reset}"
-yarn --silent workspace @joinhandshake/ui-components types || ERR=1
-echo -e "${green}${bold}Checking storybook...${reset}"
-yarn --silent workspace @joinhandshake/storybook types || ERR=1
 echo -e "${green}${bold}Checking studio...${reset}"
 yarn --silent workspace @joinhandshake/sanity-studio types || ERR=1
 

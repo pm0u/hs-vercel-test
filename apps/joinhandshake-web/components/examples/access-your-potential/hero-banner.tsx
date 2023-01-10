@@ -1,0 +1,49 @@
+import React from "react"
+import { sanitySrcsetBuilder } from "../../../helpers/sanity/images"
+import { Picture } from "../../../components/base"
+import { useReusableImages } from "../../../contexts"
+
+interface HeroBannerProps {
+  title: string
+  content: string
+}
+
+export const HeroBanner = ({ title, content }: HeroBannerProps) => {
+  const { aypHeroBanner } = useReusableImages()
+  const landscape = sanitySrcsetBuilder(aypHeroBanner.image, {
+    fixedHeight: 500,
+  })
+  const portrait = sanitySrcsetBuilder(aypHeroBanner.image, {
+    fixedAspectRatio: 1,
+  })
+  return (
+    <section className="relative mb-legacy-12 h-[500px] w-full overflow-hidden">
+      <Picture
+        sources={[
+          {
+            srcSet: landscape.srcSet,
+            width: landscape.width,
+            height: landscape.height,
+            breakpoint: "legacy-lg",
+          },
+          {
+            srcSet: portrait.srcSet,
+            width: portrait.width,
+            height: portrait.height,
+          },
+        ]}
+        alt=""
+        className="min-w-full object-cover object-top legacy-lg:min-h-full"
+        priority
+      />
+      <div className="container absolute top-0 left-0 right-0 bottom-0 z-10 mx-auto px-20">
+        <section className="absolute left-1/2 bottom-9 w-fit bg-neutral-0 p-legacy-4 font-serif max-legacy-lg:w-11/12 max-legacy-lg:-translate-x-1/2 legacy-lg:left-8">
+          <h1 className="lg:text-4xl mb-4 max-w-[13em] text-2xl font-bold">
+            {title}
+          </h1>
+          <p className="max-w-[24em]">{content}</p>
+        </section>
+      </div>
+    </section>
+  )
+}

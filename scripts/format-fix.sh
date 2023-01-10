@@ -22,8 +22,6 @@ if [[ "$PROCEED" = "y" || $PROCEED = "Y" ]]; then
   echo -e "${blue}${bold}Formatting...${reset}"
   echo -e "${green}${bold}Formatting web...${reset}"
   yarn --silent workspace @joinhandshake/joinhandshake-web format:fix
-  echo -e "${green}${bold}Formatting ui components...${reset}"
-  yarn --silent workspace @joinhandshake/ui-components format:fix
   echo -e "${green}${bold}Formatting sanity studio...${reset}"
   yarn --silent workspace @joinhandshake/sanity-studio format:fix
   exit

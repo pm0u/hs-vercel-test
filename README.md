@@ -8,11 +8,7 @@ A repository to house joinhandshake.com and associated dependencies and tooling
 . [1]
 ├── apps/ [2]
 │   ├── joinhandshake-web
-│   ├── storybook
 │   ├── sanity
-│   └── ...
-├── libs/ [3]
-│   ├── ui-components
 │   └── ...
 └── configs/ [4]
     └── ...
@@ -25,10 +21,6 @@ A repository to house joinhandshake.com and associated dependencies and tooling
 1. `apps`
 
    This folder should contain _applications_ - as in standalone projects that are intended to be deployed or run.
-
-1. `libs`
-
-   This folder should contain _libraries_ - as in tools, utilities, and components that are intended to be consumed by projects in the `apps` directory.
 
 1. `configs`
 
@@ -70,9 +62,9 @@ Run `yarn install` - This command needs to be run from the project root (`1` in 
     - If you are not already logged in, you will be prompted to do so when the studio is run for the first time.
     - More CLI info [here](https://www.sanity.io/docs/getting-started-with-sanity-cli)
   - Within Web Application
-   -  `SANITY_STUDIO_PROJECT_ID` - same as the sanity studio app
-   - `NEXT_PUBLIC_SANITY_DATASET` this can be left blank and will default to `staging`. Setting to `production` will modify **LIVE DATA** and could have consequences, this should be avoided unless there is a need to perform updates on live data from a local studio such as data importing.
-   - `SANITY_API_TOKEN` - this is used only for server side requests (not exposed to clients). This token must be generated from the studio panel under API > Tokens. Name your token something relevant such as "{{ you name }} Web Local". This token should _only_ have read permission.
+  - `SANITY_STUDIO_PROJECT_ID` - same as the sanity studio app
+  - `NEXT_PUBLIC_SANITY_DATASET` this can be left blank and will default to `staging`. Setting to `production` will modify **LIVE DATA** and could have consequences, this should be avoided unless there is a need to perform updates on live data from a local studio such as data importing.
+  - `SANITY_API_TOKEN` - this is used only for server side requests (not exposed to clients). This token must be generated from the studio panel under API > Tokens. Name your token something relevant such as "{{ you name }} Web Local". This token should _only_ have read permission.
 
 ## Project level commands
 
@@ -82,7 +74,7 @@ Commands that run multiple tasks should make use of [concurrently](https://https
 
 ### Useful Commands
 
-`yarn components:dev` - runs both the watch commands for the ui-component library and storybook as well as opens storybook in a browser
+`yarn storybook:dev` - runs storybook in development mode for component development
 
 `yarn web:dev` - runs the next server in dev mode
 
@@ -123,3 +115,9 @@ This repo utilizes Github workflows to check formatting and errors. These checks
 - [Storybook for React tutorial](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/)
 - [Sanity Docs](https://www.sanity.io/docs)
 - [Yarn Docs](https://classic.yarnpkg.com/lang/en/docs/)
+
+### Technical notes
+
+#### Storybook and Tailwind
+
+There seems to be some soft of issue with postcss, tailwind, and storybook v6 - the tailwind dependency is not hoisted to the repository level and remains in joinhandshake-web, along with postcss and a number of dependencies. This seems to be related to storybooks dependency on webpack4 and postcss 7, while tailwind requires postcss 8. Adding tailwind to the repository dependencies resolves this for now. Without this, postcss fails to find the tailwindcss module defined in config. I believe this could be resolved with storybook v7 as a number of outdated dependencies are updated and the next plugin is no longer needed.

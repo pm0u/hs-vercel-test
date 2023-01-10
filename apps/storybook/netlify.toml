@@ -1,7 +1,0 @@
-[build]
-  command = "./netlify-scripts/build.sh"
-  publish = "storybook-static"
-  ignore = "../../scripts/netlify/current-and-deps.sh"
-
-[build.environment]
-  NETLIFY_USE_YARN = 'true'

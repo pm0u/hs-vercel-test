@@ -1,2 +1,4 @@
 public
 .next
+node_modules
+storybook-static

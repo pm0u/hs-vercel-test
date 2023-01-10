@@ -11,8 +11,6 @@ ERR=0
 echo -e "${blue}${bold}Formatting...${reset}"
 echo -e "${green}${bold}Formatting web...${reset}"
 yarn --silent workspace @joinhandshake/joinhandshake-web format || ERR=1
-echo -e "${green}${bold}Formatting ui components...${reset}"
-yarn --silent workspace @joinhandshake/ui-components format || ERR=1
 echo -e "${green}${bold}Formatting sanity studio...${reset}"
 yarn --silent workspace @joinhandshake/sanity-studio format || ERR=1
 

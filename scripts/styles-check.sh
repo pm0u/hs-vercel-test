@@ -11,7 +11,5 @@ ERR=0
 echo -e "${blue}${bold}Linting styles...${reset}"
 echo -e "${green}${bold}Linting web styles...${reset}"
 yarn --silent workspace @joinhandshake/joinhandshake-web styles || ERR=1
-echo -e "${green}${bold}Linting ui components styles...${reset}"
-yarn --silent workspace @joinhandshake/ui-components styles || ERR=1
 
 exit $ERR

@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { ExampleButton } from "@joinhandshake/ui-components"
+import { ExampleButton } from "../components/examples"
 
 export default function Home() {
   return (

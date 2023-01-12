@@ -58,13 +58,13 @@ Run `yarn install` - This command needs to be run from the project root (`1` in 
 
 - **Sanity**
   - Within Studio
-    - Project ID `SANITY_STUDIO_API_PROJECT_ID` - this is obtained from the [management console](https://manage.sanity.io)
+    - Project ID `SANITY_STUDIO_PROJECT_ID` - this is obtained from the [management console](https://manage.sanity.io)
     - If you are not already logged in, you will be prompted to do so when the studio is run for the first time.
     - More CLI info [here](https://www.sanity.io/docs/getting-started-with-sanity-cli)
   - Within Web Application
   - `SANITY_STUDIO_PROJECT_ID` - same as the sanity studio app
   - `NEXT_PUBLIC_SANITY_DATASET` this can be left blank and will default to `staging`. Setting to `production` will modify **LIVE DATA** and could have consequences, this should be avoided unless there is a need to perform updates on live data from a local studio such as data importing.
-  - `SANITY_API_TOKEN` - this is used only for server side requests (not exposed to clients). This token must be generated from the studio panel under API > Tokens. Name your token something relevant such as "{{ you name }} Web Local". This token should _only_ have read permission.
+  - `SANITY_API_TOKEN` - this is used only for server side requests (not exposed to clients). This token must be generated from the studio panel under API > Tokens. Name your token something relevant such as "{{ you name }} Web Local". This token should _only_ have read permission. This token is **required** to view drafts.
 
 ## Project level commands
 

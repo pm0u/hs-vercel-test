@@ -1,14 +1,11 @@
 {
-  "eslint.workingDirectories": [
-    "./apps/joinhandshake-web",
-    "./apps/sanity"
-  ],
+  "eslint.workingDirectories": ["./apps/joinhandshake-web", "./apps/sanity"],
   "files.associations": {
     "**/apps/joinhandshake-web/**/*.css": "tailwindcss",
-    "**/apps/joinhandshake-web/**/*.module.css": "tailwindcss",
+    "**/apps/joinhandshake-web/**/*.module.css": "tailwindcss"
   },
   "editor.quickSuggestions": {
-    "strings": "on",
+    "strings": "on"
   },
   "path-autocomplete.transformations": [
     {
@@ -21,24 +18,28 @@
   ],
   "editor.tabSize": 2,
   "tailwindCSS.experimental.classRegex": [
-    /** 
+    /**
      * This is a different Regex than what CVA recommends. This will allow
      * parentheses to appear in comments without breaking intellisense.
      * Only caveat is that there can only be whitespace (or nothing) between
      * the closing `}` and `)` for cva() arguments.
      */
-    ["cva\\(([\\s\\S]+?)\\}[\\s]*?\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+    ["cva\\(([\\s\\S]+?)\\}[\\s]*?\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    /**
+     * Regex to match headlessUI transition element class properties for
+     * animation states.
+     */
+    [
+      "<Transition(?:.Child)?([^>]*)>",
+      "(?:enter|enterTo|enterFrom|leave|leaveTo|leaveFrom)=['\"]([^\"']*)['\"]"
+    ]
   ],
   "tailwindCSS.experimental.configFile": {
-    "apps/joinhandshake-web/tailwind.config.js": "apps/joinhandshake-web/**/*",
+    "apps/joinhandshake-web/tailwind.config.js": "apps/joinhandshake-web/**/*"
   },
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.validate": [
-    "css",
-    "postcss",
-    "tailwindcss"
-  ],
+  "stylelint.validate": ["css", "postcss", "tailwindcss"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

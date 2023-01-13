@@ -17,6 +17,6 @@
     "incremental": true,
     "baseUrl": "."
   },
-  "include": ["**/*.ts", "**/*.tsx", "*.d.ts", "configs/next.js", "**/*.js"],
+  "include": ["**/*.ts", "**/*.tsx", "*.d.ts", "**/*.js"],
   "exclude": ["node_modules", ".next", "storybook-static"]
 }

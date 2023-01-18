@@ -4,16 +4,30 @@ export const etaIndustry2021: DocumentDefinition = {
   name: "etaIndustry2021",
   type: "document",
   title: "ETA 2021 Industries",
+  groups: [
+    {
+      name: "pageData",
+      title: "Page Data",
+      default: true,
+    },
+    {
+      name: "seo",
+      title: "SEO",
+    },
+  ],
   fields: [
+    { type: "seo", group: "seo", name: "seo" },
     {
       title: "Industry Name",
       name: "name",
       type: "string",
+      group: "pageData",
     },
     {
       title: "Industry Slug",
       name: "industrySlug",
       type: "slug",
+      group: "pageData",
       options: {
         source: "name",
         maxLength: 200, // will be ignored if slugify is set
@@ -25,11 +39,13 @@ export const etaIndustry2021: DocumentDefinition = {
       title: "Description",
       name: "description",
       type: "text",
+      group: "pageData",
     },
     {
       title: "Industry Background Color",
       name: "industryBackgroundColor",
       type: "string",
+      group: "pageData",
       options: {
         list: [
           { title: "Aqua", value: "light-blue" },
@@ -44,21 +60,7 @@ export const etaIndustry2021: DocumentDefinition = {
       title: "Industry Icon",
       name: "industryIcon",
       type: "image",
-    },
-    {
-      title: "Share Image",
-      name: "shareImage",
-      type: "image",
-    },
-    {
-      title: "Seo Title",
-      name: "seoTitle",
-      type: "text",
-    },
-    {
-      title: "Seo Description",
-      name: "seoDescription",
-      type: "text",
+      group: "pageData",
     },
   ],
 }

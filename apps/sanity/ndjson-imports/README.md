@@ -6,11 +6,11 @@ All of these can be run from the Sanity CLI when messing w/ data.
 
 ### Get all data for the Document type
 
-`sanity documents query "*[_type == 'etaIndustry2021']`
+`sanity documents query "*[_type == 'etaIndustry2021']"`
 
 ### Get all the id's for the type
 
-`sanity documents query "*[_type == 'etaIndustry2021']._id`
+`sanity documents query "*[_type == 'etaIndustry2021']._id"`
 
 ## "Dirty" Bulk Delete from command line
 
@@ -18,10 +18,10 @@ https://www.sanity.io/answers/hey-all-what-s-the-quickest-way-to-batch-delete-p1
 
 ```// Example will delete all 'etaIndustry2021' documents
 // 1) Get all the ids for each document
-sanity documents query "*[_type == 'etaIndustry2021']._id
+sanity documents query "*[_type == 'etaIndustry2021']._id"
 // 2) Copy all the id's returned, manually remove the commas, and put them all on one line
 // 3) Run sanity documents delete and paste the single line list of ids from the previous step
-sanity documents delete "drafts.eta_industry_2021.1736" "eta_industry_2021.1735"
+sanity documents delete "drafts.etaIndustry2021_1736" "etaIndustry2021_1735"
 ```
 
 ## Bulk import from ndjson file

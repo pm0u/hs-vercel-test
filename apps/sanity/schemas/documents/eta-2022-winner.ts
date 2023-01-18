@@ -1,19 +1,33 @@
 import { DocumentDefinition } from "sanity"
 
-export const etaWinner2021: DocumentDefinition = {
-  name: "etaWinners2021",
+export const etaWinner2022: DocumentDefinition = {
+  name: "etaWinners2022",
   type: "document",
-  title: "ETA 2021 Winners",
+  title: "ETA 2022 Winners",
+  groups: [
+    {
+      name: "pageData",
+      title: "Page Data",
+      default: true,
+    },
+    {
+      name: "seo",
+      title: "SEO",
+    },
+  ],
   fields: [
+    { type: "seo", group: "seo", name: "seo" },
     {
       title: "Winner Name",
       name: "name",
       type: "string",
+      group: "pageData",
     },
     {
       title: "Winner Slug",
       name: "winnerSlug",
       type: "slug",
+      group: "pageData",
       options: {
         source: "name",
         maxLength: 200, // will be ignored if slugify is set
@@ -25,12 +39,14 @@ export const etaWinner2021: DocumentDefinition = {
       title: "Winner Logo",
       name: "winnerLogo",
       type: "image",
+      group: "pageData",
     },
     {
-      title: "Industry",
-      name: "industry",
+      title: "Category",
+      name: "category",
       type: "reference",
-      to: [{ type: "etaIndustry2021" }],
+      group: "pageData",
+      to: [{ type: "etaCategory2022" }],
       options: {
         disableNew: true,
       },
@@ -39,16 +55,26 @@ export const etaWinner2021: DocumentDefinition = {
       title: "Excerpt",
       name: "excerpt",
       type: "text",
+      group: "pageData",
+    },
+    {
+      title: "Past Winner?",
+      name: "pastWinner",
+      type: "boolean",
+      group: "pageData",
+      description: "Set to true if this company has won an ETA in the past",
     },
     {
       title: "About The Company Paragraph",
       name: "aboutTheCompanyParagraph",
       type: "text",
+      group: "pageData",
     },
     {
       title: "Company Highlights",
       name: "companyHighlights",
       type: "array",
+      group: "pageData",
       of: [{ type: "string" }],
       validation: (Rule) => Rule.required().length(3),
       options: {
@@ -70,7 +96,6 @@ export const etaWinner2021: DocumentDefinition = {
             value: "leadership-opportunities",
             title: "Leadership Opportunities",
           },
-          { value: "light-workload", title: "Light Workload" },
           {
             value: "managers-are-good-mentors",
             title: "Managers are Good Mentors",
@@ -108,26 +133,13 @@ export const etaWinner2021: DocumentDefinition = {
       title: "Student Quote",
       name: "studentQuote",
       type: "text",
+      group: "pageData",
     },
     {
       title: "Share Button Text",
       name: "shareButtonText",
       type: "text",
-    },
-    {
-      title: "Share Image",
-      name: "shareImage",
-      type: "image",
-    },
-    {
-      title: "SEO Title",
-      name: "seoTitle",
-      type: "string",
-    },
-    {
-      title: "SEO Meta Description",
-      name: "seoMetaDescription",
-      type: "text",
+      group: "pageData",
     },
   ],
 }

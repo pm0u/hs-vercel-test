@@ -1,5 +1,6 @@
 import { ListBuilder, StructureBuilder } from "sanity/desk"
 import { ClipboardIcon } from "@sanity/icons"
+import { ConfigContext } from "sanity"
 
 /**
  * Singleton Setup
@@ -21,7 +22,17 @@ export const singletonActions = new Set([
   "restore",
 ])
 
-export const structure: (S: StructureBuilder) => ListBuilder = (S) => {
+/**
+ * These users will have *all* actions available on singletons
+ * and they will be visible in the content list.
+ */
+export const singletonEditorRoles = new Set(["developer", "administrator"])
+
+export const structure: (
+  S: StructureBuilder,
+  context: ConfigContext
+) => ListBuilder = (S, context) => {
+  const userRoles = context.currentUser?.roles
   return S.list()
     .title("Content")
     .items([
@@ -48,10 +59,9 @@ export const structure: (S: StructureBuilder) => ListBuilder = (S) => {
             ])
         ),
       S.divider(),
-      // filters out the singletons if we are in production mode
-      // A better solution would be to filter based on role but can't do that in v3 yet
+      // Filter out singletons for unauthorized users
       ...S.documentTypeListItems().filter((listItem) =>
-        import.meta.env.DEV
+        userRoles?.some((userRole) => singletonEditorRoles.has(userRole.name))
           ? true
           : !singletonTypes.has(listItem.getId() as string)
       ),

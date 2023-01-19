@@ -17,8 +17,26 @@ DRY_RUN=false
 SAVE_FILE=false
 HELP=false
 DOCUMENT_ACTION="--missing"
+RAW=""
+ASSET_CONCURRENCY=24
 
-HELP_TEXT="${bold}Usage:\n${reset}${green}migrate ${blue}[-t|--types type1,type2] [-f|--filename filename] [-o|--output-dataset dataset] [-i|--input-dataset dataset] [-X|--dry-run] [-s|--save-file] [-e|--export-only] [-d|--documents-only] [-R|--replace]\n ${reset}default datasets are input staging, output production\n ${yellow}if types (-t|--types) are not provided, all types are exported${reset}\n"
+HELP_TEXT="${bold}Usage:\n${reset}${green}migrate [options]\n\
+  ${bold}Options:${reset}\n\
+  ${blue}-t|--types [type1,type2]\t${reset}specify types to export\n\
+  ${blue}-f|--filename [filename]\t${reset}specify filename\n\
+  ${blue}-o|--output-dataset [dataset]\t${reset}specify dataset to import to (default: production)\n\
+  ${blue}-i|--input-dataset [dataset]\t${reset}specify dataset to export from (default: staging)\n\
+  ${blue}-X|--dry-run\t\t\t${reset}take no action but explain steps that would be taken\n\
+  ${blue}-s|--save-file\t\t${reset}keep the export file (if export only is specified, this is assumed)\n\
+  ${blue}-e|--export-only\t\t${reset}skip the import step\n\
+  ${blue}-d|--documents-only\t\t${reset}skip assets\n\
+  ${blue}-R|--replace\t\t\t${reset}replace documents with those from import, rather than only missing\n\
+  ${blue}-r|--raw\t\t\t${reset}specifies raw flag on export, changes reference handling(see sanity docs)\n\
+  ${blue}-a|--a [number]\t\t\t${reset}set asset concurrency, defaults to 24 (max)\n\
+  \n\
+  ${yellow}if types (-t|--types) are not provided, all types are exported${reset}\n\
+  ${green}example:\n\
+  migrate --types type1,type2 -i production -o staging -R\n${reset}"
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -66,6 +84,15 @@ while [[ $# -gt 0 ]]; do
       DOCUMENT_ACTION="--replace"
       shift
       ;;
+    -r|--raw)
+      RAW="--raw"
+      shift
+      ;;
+    -a|--asset-concurrency)
+      ASSET_CONCURRENCY="$2"
+      shift
+      shift
+      ;;
   esac
 done
 
@@ -99,6 +126,17 @@ if [ "${DRY_RUN}" = true ]; then
   fi
 
   echo -e "${yellow}From ${INPUT_DATASET} to ${OUTPUT_DATASET}${reset}"
+
+  if [ "${RAW}" == "--raw" ]; then
+    echo -e "${yellow}Raw export${reset}"
+  fi
+
+  if [ "${DOCUMENT_ACTION}" == "--replace" ]; then
+    echo -e "${red}Replacing documents${reset}"
+  else
+    echo -e "${yellow}Only missing documents${reset}"
+  fi
+
   exit 0
 fi
 
@@ -111,7 +149,7 @@ else
 fi
 
 echo -e "${blue}Exporting...${reset}"
-sanity dataset export $INPUT_DATASET $FILENAME.tar.gz --types $TYPES $DOCUMENTS_ONLY
+sanity dataset export $INPUT_DATASET $FILENAME.tar.gz --types $TYPES $DOCUMENTS_ONLY $RAW --asset-concurrency 24
 
 if [ "$EXPORT_ONLY" = true ]; then
   echo -e "${blue}Export done, exiting..${reset}"

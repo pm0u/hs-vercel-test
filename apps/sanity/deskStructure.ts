@@ -1,4 +1,4 @@
-import { StructureBuilder } from "sanity/desk"
+import { ListBuilder, StructureBuilder } from "sanity/desk"
 import { ClipboardIcon } from "@sanity/icons"
 
 /**
@@ -21,8 +21,8 @@ export const singletonActions = new Set([
   "restore",
 ])
 
-export const structure = (S: StructureBuilder) =>
-  S.list()
+export const structure: (S: StructureBuilder) => ListBuilder = (S) => {
+  return S.list()
     .title("Content")
     .items([
       S.listItem()
@@ -48,7 +48,12 @@ export const structure = (S: StructureBuilder) =>
             ])
         ),
       S.divider(),
-      ...S.documentTypeListItems() /*.filter(
-        (listItem) => !singletonTypes.has(listItem.getId() as string)
-      )*/,
+      // filters out the singletons if we are in production mode
+      // A better solution would be to filter based on role but can't do that in v3 yet
+      ...S.documentTypeListItems().filter((listItem) =>
+        import.meta.env.DEV
+          ? true
+          : !singletonTypes.has(listItem.getId() as string)
+      ),
     ])
+}

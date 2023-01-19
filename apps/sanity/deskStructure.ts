@@ -37,7 +37,7 @@ export const structure = (S: StructureBuilder) =>
                 .child(
                   S.document()
                     .schemaType("etaLanding2021")
-                    .documentId("etaLanding2021")
+                    .documentId("landingPage")
                 ),
               S.listItem()
                 .title("Winners")
@@ -48,7 +48,7 @@ export const structure = (S: StructureBuilder) =>
             ])
         ),
       S.divider(),
-      ...S.documentTypeListItems().filter(
+      ...S.documentTypeListItems() /*.filter(
         (listItem) => !singletonTypes.has(listItem.getId() as string)
-      ),
+      )*/,
     ])

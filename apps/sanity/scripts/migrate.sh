@@ -7,7 +7,8 @@ bold="\033[1m"
 reset="\033[0m"
 yellow="\033[0;33m"
 
-FILENAME="temp"
+TIMESTAMP=$(date "+%Y.%m.%d-%H.%M.%S")
+FILENAME="import-${TIMESTAMP}"
 OUTPUT_DATASET="production"
 INPUT_DATASET="staging"
 EXPORT_ONLY=false
@@ -15,8 +16,9 @@ DOCUMENTS_ONLY=false
 DRY_RUN=false
 SAVE_FILE=false
 HELP=false
+DOCUMENT_ACTION="--missing"
 
-HELP_TEXT="${bold}Usage:\n${reset}${green}migrate ${blue}[-t|--types type1,type2] [-f|--filename filename] [-o|--output-dataset dataset] [-i|--input-dataset dataset] [-X|--dry-run] [-s|--save-file] [-e|--export-only] [-d|--documents-only]\n ${reset}default datasets are input staging, output production\n ${yellow}if types (-t|--types) are not provided, all types are exported${reset}\n"
+HELP_TEXT="${bold}Usage:\n${reset}${green}migrate ${blue}[-t|--types type1,type2] [-f|--filename filename] [-o|--output-dataset dataset] [-i|--input-dataset dataset] [-X|--dry-run] [-s|--save-file] [-e|--export-only] [-d|--documents-only] [-R|--replace]\n ${reset}default datasets are input staging, output production\n ${yellow}if types (-t|--types) are not provided, all types are exported${reset}\n"
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -58,6 +60,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     -s|--save-file)
       SAVE_FILE=true
+      shift
+      ;;
+    -R|--replace)
+      DOCUMENT_ACTION="--replace"
       shift
       ;;
   esac
@@ -113,7 +119,7 @@ if [ "$EXPORT_ONLY" = true ]; then
 fi
 
 echo -e "${blue}Importing...${reset}"
-sanity dataset import $FILENAME.tar.gz $OUTPUT_DATASET
+sanity dataset import $FILENAME.tar.gz $OUTPUT_DATASET $DOCUMENT_ACTION
 echo -e "${blue}Cleaning up...${reset}"
 rm $FILENAME.tar.gz
 echo -e "${green}Done!"

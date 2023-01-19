@@ -16,6 +16,7 @@
     "web:dev": "yarn workspace @joinhandshake/joinhandshake-web dev",
     "sanity:dev": "yarn workspace @joinhandshake/sanity-studio dev",
     "sanity:build": "yarn workspace @joinhandshake/sanity-studio build",
+    "sanity:migrate": "yarn workspace @joinhandshake/sanity-studio migrate",
     "types": "./scripts/type-check.sh",
     "lint": "./scripts/lint-check.sh",
     "lint:fix": "./scripts/lint-fix.sh",

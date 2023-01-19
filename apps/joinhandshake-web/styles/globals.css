@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .legacy-grid-container {
+    @apply mx-auto w-full max-w-[80rem] px-legacy-5;
+  }
+  @screen legacy-md {
+    .legacy-grid-container {
+      @apply px-[30px];
+    }
+  }
+}
+
+html {
+  font-family: var(--font-noi-grotesk);
+
+  /* Doesn't end up applying without !important */
+  scroll-behavior: smooth !important;
+}
+
+.skeleton-text {
+  display: block;
+  background-image: linear-gradient(#d4d6ec 16px, transparent 0),
+    linear-gradient(#d4d6ec 16px, transparent 0),
+    linear-gradient(#d4d6ec 16px, transparent 0),
+    linear-gradient(#d4d6ec 16px, transparent 0);
+  background-repeat: repeat-y;
+  background-position: 0 0, 0 24px, 0 48px, 0 72px;
+  background-size: 90% 96px, 70% 96px, 60% 96px, 80% 96px;
+}

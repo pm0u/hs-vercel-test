@@ -95,6 +95,8 @@ colors.neutral.DEFAULT = colors.neutral[10]
 colors.cyan.DEFAULT = colors.cyan[30]
 colors.purple.DEFAULT = colors.purple[50]
 colors.magenta.DEFAULT = colors.magenta[40]
+colors.nori = {}
+colors.nori.DEFAULT = colors.cyan[90]
 
 /**
  * @type {{colors: Record<string,TailwindColorObject>}}

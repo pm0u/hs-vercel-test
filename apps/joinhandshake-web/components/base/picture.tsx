@@ -1,6 +1,5 @@
 import React, { HTMLProps, ImgHTMLAttributes } from "react"
-import { Config } from "tailwindcss"
-import { useTheme } from "../../contexts"
+import { useTheme, ThemeConfig } from "../../contexts"
 import Head from "next/head"
 
 interface PictureProps
@@ -61,7 +60,10 @@ type Source = SourceWithBreakpoint | SourceWithCustomMedia | DefaultSource
  * Given a tailwind theme config and a breakpoint (either a PX number or tailwind breakpoint),
  * returns a PX number value for a given breakpoint. If no breakpoint provided, returns undefined.
  */
-const getBreakpointNumber = (theme: Config, breakpoint?: string | number) => {
+const getBreakpointNumber = (
+  theme: ThemeConfig,
+  breakpoint?: string | number
+) => {
   if (typeof breakpoint === "undefined") {
     return
   }
@@ -74,9 +76,7 @@ const getBreakpointNumber = (theme: Config, breakpoint?: string | number) => {
     typeof theme.theme?.screens !== "undefined" &&
     breakpoint in theme.theme.screens
   ) {
-    const tailwindBreakpoint = (theme.theme.screens as Record<string, string>)[
-      breakpoint
-    ]
+    const tailwindBreakpoint = theme.theme.screens[breakpoint]
     return Number(tailwindBreakpoint.replace("px", ""))
   }
 
@@ -87,7 +87,7 @@ const getBreakpointNumber = (theme: Config, breakpoint?: string | number) => {
  * Creates a min width media query from a breakpoint value.
  * If no breakpoint provided returns undefined.
  */
-const getMinWidthMedia = (theme: Config, breakpoint?: string | number) => {
+const getMinWidthMedia = (theme: ThemeConfig, breakpoint?: string | number) => {
   if (typeof breakpoint === "undefined") {
     return
   }
@@ -101,7 +101,7 @@ const getMinWidthMedia = (theme: Config, breakpoint?: string | number) => {
  * to load the current source up until the next largest source's breakpoint.
  */
 const getMediaRange = (
-  theme: Config,
+  theme: ThemeConfig,
   sources: Source[],
   currentSource: number
 ) => {

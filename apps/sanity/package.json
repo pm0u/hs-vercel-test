@@ -14,20 +14,22 @@
     "format:fix": "prettier --write .",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "types": "tsc --noEmit --strict --incremental false"
+    "types": "tsc --noEmit --strict --incremental false",
+    "migrate": "./scripts/migrate.sh"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
-    "@sanity/vision": "^3.1.4",
+    "@sanity/vision": "^3.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sanity": "^3.1.4",
+    "sanity": "^3.2.4",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.8.1",

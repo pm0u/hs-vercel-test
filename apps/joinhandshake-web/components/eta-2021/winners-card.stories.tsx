@@ -1,6 +1,7 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import { ETA2021WinnersCard } from "./winners-card"
+import { useDevImages } from "contexts"
 
 const story: ComponentMeta<typeof ETA2021WinnersCard> = {
   title: "Components",
@@ -9,11 +10,14 @@ const story: ComponentMeta<typeof ETA2021WinnersCard> = {
 
 export default story
 
-const Template: ComponentStory<typeof ETA2021WinnersCard> = (args) => (
-  <div className="mx-auto w-max">
-    <ETA2021WinnersCard {...args} />
-  </div>
-)
+const Template: ComponentStory<typeof ETA2021WinnersCard> = (args) => {
+  const { _600 } = useDevImages()
+  return (
+    <div className="mx-auto w-max">
+      <ETA2021WinnersCard {...args} icon={_600.image} />
+    </div>
+  )
+}
 
 export const WinnersCard = Template.bind({})
 
@@ -22,5 +26,4 @@ WinnersCard.args = {
   title: "Accounting",
   buttonText: "See the winners!",
   href: "https://www.joinhandshake.com",
-  icon: "https://i0.wp.com/joinhandshake.com/wp-content/uploads/2021/03/eta-industry-accounting-1.png?resize=150%2C150&ssl=1",
 }

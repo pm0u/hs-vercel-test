@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import { SanityImageObject } from "@sanity/image-url/lib/types/types"
-import { useSanityImage } from "../../../hooks/useSanityImage"
+import { useSanityImage } from "hooks/use-sanity-image"
 
 interface ImageWithTextProps {
   layout: "imageLeft" | "imageRight"
@@ -29,7 +29,7 @@ export const ImageWithText = ({
     />,
   ]
   return (
-    <section className="flex flex-col py-legacy-8 legacy-lg:flex-row legacy-lg:gap-12">
+    <section className="flex flex-col py-legacy-8 legacy-lg:flex-row legacy-lg:gap-legacy-12">
       {layout === "imageLeft" ? contents.reverse() : contents}
     </section>
   )

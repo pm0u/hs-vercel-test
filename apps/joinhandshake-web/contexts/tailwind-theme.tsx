@@ -7,12 +7,21 @@ interface ThemeProviderProps {
   config: Config
 }
 
-const ThemeContext = React.createContext<{ theme: Config } | undefined>(
+// We can build this as needed, if it is helpful..
+export interface ThemeConfig {
+  theme: {
+    screens: Record<string, string>
+    // Custom
+    [key: string]: any
+  }
+}
+
+const ThemeContext = React.createContext<{ theme: ThemeConfig } | undefined>(
   undefined
 )
 
 const ThemeProvider = ({ children, config }: ThemeProviderProps) => {
-  const parsedConfig = resolveConfig(config)
+  const parsedConfig = resolveConfig(config) as unknown as ThemeConfig
 
   return (
     <ThemeContext.Provider value={{ theme: parsedConfig }}>

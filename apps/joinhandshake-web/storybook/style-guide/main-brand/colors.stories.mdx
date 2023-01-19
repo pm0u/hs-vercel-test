@@ -31,6 +31,18 @@ import { colors } from "../../../tailwind/main-brand"
   {Object.entries(resolveConfig({ theme: { colors } }).theme.colors).map(
     ([colorName, colorValue]) => {
       let defaultValue = null
+      if (Object.keys(colorValue).length === 1) {
+        return (
+          <ColorItem
+            title={`${colorName
+              .toLocaleUpperCase()
+              .slice(0, 1)}${colorName.slice(1)}`}
+            key={colorValue.DEFAULT}
+            subtitle="Single Color"
+            colors={{ [colorName]: colorValue.DEFAULT }}
+          />
+        )
+      }
       const displayColors = Object.keys(colorValue).reduce((obj, key) => {
         if (key === "DEFAULT") return obj
         if (colorValue[key] === colorValue.DEFAULT) {

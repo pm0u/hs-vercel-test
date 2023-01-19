@@ -36,9 +36,9 @@ export const HeroBanner = ({ title, content }: HeroBannerProps) => {
         className="min-w-full object-cover object-top legacy-lg:min-h-full"
         priority
       />
-      <div className="container absolute top-0 left-0 right-0 bottom-0 z-10 mx-auto px-20">
-        <section className="absolute left-1/2 bottom-9 w-fit bg-neutral-0 p-legacy-4 font-serif max-legacy-lg:w-11/12 max-legacy-lg:-translate-x-1/2 legacy-lg:left-8">
-          <h1 className="lg:text-4xl mb-4 max-w-[13em] text-2xl font-bold">
+      <div className="container absolute top-0 left-0 right-0 bottom-0 z-10 mx-auto px-legacy-20">
+        <section className="font-serif absolute left-1/2 bottom-legacy-9 w-fit bg-neutral-0 p-legacy-4 max-legacy-lg:w-11/12 max-legacy-lg:-translate-x-1/2 legacy-lg:left-legacy-8">
+          <h1 className="lg:text-legacy-4xl mb-legacy-4 max-w-[13em] text-legacy-2xl font-bold">
             {title}
           </h1>
           <p className="max-w-[24em]">{content}</p>

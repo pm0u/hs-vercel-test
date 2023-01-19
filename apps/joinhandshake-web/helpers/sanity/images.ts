@@ -68,7 +68,7 @@ const getSrcsetForSizes = (
  * These are guaranteed by sanity to be constant
  * @see https://www.sanity.io/docs/image-urls
  */
-const getImageDimensions = (id: string) => {
+export const getImageDimensions = (id: string) => {
   const dimensions = id.split("-")[2]
   const [width, height] = dimensions.split("x").map((num) => parseInt(num, 10))
   const aspectRatio = width / height

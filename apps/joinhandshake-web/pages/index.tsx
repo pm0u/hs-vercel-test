@@ -10,7 +10,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto pt-10">
+      <main className="container mx-auto pt-legacy-10">
         <h1 className="text-4xl font-bold">Testing only!</h1>
         <p className="text-lg">
           These button colors are NOT legit at all. Don&apos;t use them when

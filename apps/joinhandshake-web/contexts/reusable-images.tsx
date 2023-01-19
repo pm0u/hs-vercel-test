@@ -1,6 +1,6 @@
 import React from "react"
-import { SanityReusableImage } from "../sanity"
-import images from "../lib/data/reusableImages.preval"
+import { SanityReusableImage } from "types/sanity"
+import images from "lib/data/reusableImages.preval"
 
 const ReusableImageContext = React.createContext<
   Record<string, SanityReusableImage> | undefined

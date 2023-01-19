@@ -13,13 +13,13 @@ export const ETA2022SocialTile = ({
   href = "",
 }: ETA2022SocialTileProps) => {
   return (
-    <div className="duration-30 h-12 w-12 transform rounded-md bg-legacy-purple text-neutral-0 hover:scale-105 hover:opacity-90">
+    <div className="duration-30 h-legacy-12 w-legacy-12 transform rounded-legacy-md bg-legacy-purple text-neutral-0 hover:scale-105 hover:opacity-90">
       <Link
         href={href}
         target="_blank"
         className="flex h-full w-full items-center"
       >
-        <SocialIcon className="p-3" icon={icon}></SocialIcon>
+        <SocialIcon className="p-legacy-3" icon={icon}></SocialIcon>
       </Link>
     </div>
   )

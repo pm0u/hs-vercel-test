@@ -3,13 +3,14 @@ import { deskTool } from "sanity/desk"
 import { visionTool } from "@sanity/vision"
 import schemas from "./schemas/schema"
 import { datasetNavbar } from "./plugins/dataset-navbar"
+import { structure, singletonActions, singletonTypes } from "./deskStructure"
 
 export default defineConfig({
   title: "Handshake Studio",
   projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   dataset: import.meta.env.SANITY_STUDIO_DATASET,
   plugins: [
-    deskTool(),
+    deskTool({ structure }),
     visionTool({
       defaultApiVersion: "v2022-10-21",
     }),
@@ -17,6 +18,14 @@ export default defineConfig({
   ],
   schema: {
     types: schemas,
+    templates: (templates) =>
+      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+  },
+  document: {
+    actions: (input, context) =>
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({ action }) => action && singletonActions.has(action))
+        : input,
   },
   /** Hides vision tool in production */
   tools: (prev) => {

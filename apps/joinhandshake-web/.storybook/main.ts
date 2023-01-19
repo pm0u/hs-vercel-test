@@ -40,6 +40,7 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "storybook-addon-next",
   ],
+  staticDirs: ["../public/"],
   framework: "@storybook/react",
   core: {
     builder: "webpack5",

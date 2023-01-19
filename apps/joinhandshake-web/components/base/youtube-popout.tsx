@@ -6,17 +6,20 @@ interface YoutubePopoutProps extends YouTubeProps {
   /** Content to display in trigger */
   children: React.ReactNode
   /** Mount opened or externally control open state */
-  open: boolean
+  open?: boolean
   /**
    * Options for YT player. Defaults to autoplay in playerVars
    * @see https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
    */
-  opts: YouTubeProps["opts"]
+  opts?: YouTubeProps["opts"]
+  /** Classes applied to trigger button wrapper */
+  className?: string
 }
 
 export const YoutubePopout = ({
   children,
   open = false,
+  className,
   opts = { playerVars: { autoplay: 1 } },
   ...youtubeProps
 }: YoutubePopoutProps) => {
@@ -28,7 +31,9 @@ export const YoutubePopout = ({
 
   return (
     <>
-      <button onClick={() => setOpenState(true)}>{children}</button>
+      <button onClick={() => setOpenState(true)} className={className}>
+        {children}
+      </button>
       <Transition
         show={openState}
         enter="transition-opacity"
@@ -53,7 +58,7 @@ export const YoutubePopout = ({
           />
           <button
             type="button"
-            className="mx-auto mt-6 block h-8 w-8"
+            className="mx-auto mt-legacy-6 block h-legacy-8 w-legacy-8"
             onClick={() => setOpenState(false)}
           >
             <svg

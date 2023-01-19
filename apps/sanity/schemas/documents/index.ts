@@ -1,6 +1,7 @@
 import { exampleAccessYourPotential } from "./example-access-your-potential"
 import { devImage } from "./dev-image"
 import { reusableImage } from "./reusable-image"
+import { etaLanding2021 } from "./eta-2021-landing"
 import { etaIndustry2021 } from "./eta-2021-industry"
 import { etaWinner2021 } from "./eta-2021-winner"
 import { etaCategory2022 } from "./eta-2022-category"
@@ -14,4 +15,5 @@ export const documents = [
   exampleAccessYourPotential,
   devImage,
   reusableImage,
+  etaLanding2021,
 ]

@@ -1,2 +1,5 @@
 dist
 .sanity
+
+# Exports/imports from sanity
+*.tar.gz

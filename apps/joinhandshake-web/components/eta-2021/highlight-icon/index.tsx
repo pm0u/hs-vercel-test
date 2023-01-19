@@ -15,9 +15,9 @@ export interface IconProps {
 const iconBg = cva(
   [
     "flex items-center justify-center",
-    "mx-auto mb-4",
+    "mx-auto mb-legacy-4",
     "rounded-full",
-    "w-9 h-9 lg:w-16 lg:h-16 p-2 lg:p-4",
+    "w-legacy-9 h-legacy-9 lg:w-legacy-16 lg:h-legacy-16 p-legacy-2 lg:p-legacy-4",
   ],
   {
     variants: {
@@ -43,7 +43,7 @@ export const CompanyHighlightSVG = ({
 
   return (
     <div className="mx-auto w-min">
-      <div className="text-center text-sm">
+      <div className="text-center text-legacy-sm">
         <div className={iconBg({ background })}>
           <Icon {...props} />
         </div>

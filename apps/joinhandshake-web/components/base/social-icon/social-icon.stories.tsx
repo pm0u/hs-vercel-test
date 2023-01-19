@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof SocialIcon> = ({
   ...args
 }) => (
   <div className="mx-auto w-min">
-    <SocialIcon className={`${className} h-10 w-10`} {...args} />
+    <SocialIcon className={`${className} h-legacy-10 w-legacy-10`} {...args} />
   </div>
 )
 

@@ -11,13 +11,15 @@ export interface ETA2021ButtonProps {
   size: "small" | "large"
   /** URL to navigate the user to */
   href: string
+  /** Custom classes to apply to button */
+  className?: string
 }
 
 const button = cva(
   [
     "block cursor-pointer py-legacy-4 px-legacy-8 whitespace-nowrap",
     "border border-neutral-100 transform duration-30",
-    "translate-x-1 -translate-y-1 hover:transform-none",
+    "translate-x-legacy-1 -translate-y-legacy-1 hover:transform-none",
   ],
   {
     variants: {
@@ -28,8 +30,8 @@ const button = cva(
         yellow: ["bg-legacy-yellow"],
       },
       size: {
-        small: ["text-sm", "py-2", "px-3"],
-        large: ["text-base", "font-bold", "py-4", "px-6"],
+        small: ["text-legacy-sm", "py-legacy-2", "px-legacy-3"],
+        large: ["text-legacy-base", "font-bold", "py-legacy-4", "px-legacy-6"],
       },
     },
   }
@@ -40,10 +42,15 @@ export const ETA2021Button = ({
   href,
   color = "blue",
   size = "large",
+  className = "",
 }: ETA2021ButtonProps) => {
   return (
-    // NOTE: assumption below that if href starts with '/' it is internal and will not open in a new tab
-    <Link href={href} target={href.startsWith("/") ? "" : "_blank"}>
+    // NOTE: assumption below that if href starts with '/' or '#' it is internal and will not open in a new tab
+    <Link
+      href={href}
+      target={href.startsWith("/") || href.startsWith("#") ? "" : "_blank"}
+      className={`w- block w-min ${className}`}
+    >
       <span className="block bg-neutral-100">
         <span className={button({ color, size })}>{children}</span>
       </span>

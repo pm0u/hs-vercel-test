@@ -7,7 +7,7 @@ import {
   structure,
   singletonActions,
   singletonTypes,
-  singletonEditorRoles,
+  fullEditorRoles,
 } from "./deskStructure"
 
 export default defineConfig({
@@ -31,10 +31,11 @@ export default defineConfig({
       const roles = context.currentUser?.roles
 
       // allow authorized users all permissions on singletons
-      if (roles?.some((role) => singletonEditorRoles.has(role.name))) {
+      if (roles?.some((role) => fullEditorRoles.has(role.name))) {
         return input
       }
 
+      // otherwise disable certain actions on singleton docs
       return singletonTypes.has(context.schemaType)
         ? input.filter(({ action }) => action && singletonActions.has(action))
         : input

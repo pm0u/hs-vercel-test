@@ -51,23 +51,26 @@ const Separator = () => <span aria-hidden="true"> » </span>
  */
 export const Breadcrumbs = ({ crumbs }: BreadcrumbProps) => {
   return (
-    <nav aria-label="breadcrumbs">
+    <nav
+      aria-label="breadcrumbs"
+      className="text-legacy-xxs uppercase leading-legacy-extra-loose tracking-legacy-widest legacy-lg:text-legacy-xs"
+    >
       <ol>
         {crumbs.map((crumb, i) => {
           const isLast = i === crumbs.length - 1
           if ("href" in crumb) {
             return (
-              <>
+              <React.Fragment key={crumb.label}>
                 <LinkedBreadcrumb {...crumb} />
                 {!isLast && <Separator />}
-              </>
+              </React.Fragment>
             )
           }
           return (
-            <>
+            <React.Fragment key={crumb.label}>
               <UnlinkedBreadcrumb {...crumb} current={isLast} />
               {!isLast && <Separator />}
-            </>
+            </React.Fragment>
           )
         })}
       </ol>

@@ -4,7 +4,7 @@
 
 @layer utilities {
   .legacy-grid-container {
-    @apply mx-auto w-full max-w-[80rem] px-legacy-5;
+    @apply mx-auto w-full max-w-[80rem] px-[10px];
   }
   @screen legacy-md {
     .legacy-grid-container {

@@ -8,13 +8,30 @@ import { ConfigContext } from "sanity"
  * @see https://www.sanity.io/guides/singleton-document
  * --------------------------------------------------------
  * These will need to be linked to directly in the desk structure,
- * otherwise they are hidden.
+ * otherwise they are hidden. These are also hidden from creating new
+ * documents in the popup.
  */
 export const singletonTypes = new Set(["etaLanding2021"])
 
 /**
+ * Types that are explicitly organized outside of the "catch all"
+ */
+const organizedTypes = new Set(["etaWinners2021", "etaIndustry2021"])
+
+/**
+ * All of these will be hidden in the catch all area, except for users
+ * with roles called out in fullEditorRoles below.
+ */
+export const hiddenTypes = new Set([
+  ...singletonTypes,
+  ...organizedTypes,
+  "devImage",
+])
+
+/**
  * Available actions to perform on a singleton doc.
- * We don't want duplicate or delete available for example
+ * We don't want duplicate or delete available for example.
+ * Users with roles in fullEditorRoles will have all actions available.
  */
 export const singletonActions = new Set([
   "publish",
@@ -24,9 +41,9 @@ export const singletonActions = new Set([
 
 /**
  * These users will have *all* actions available on singletons
- * and they will be visible in the content list.
+ * and all types will be visible in the content list.
  */
-export const singletonEditorRoles = new Set(["developer", "administrator"])
+export const fullEditorRoles = new Set(["developer", "administrator"])
 
 export const structure: (
   S: StructureBuilder,
@@ -59,11 +76,11 @@ export const structure: (
             ])
         ),
       S.divider(),
-      // Filter out singletons for unauthorized users
+      // Filter out hidden types for unauthorized users
       ...S.documentTypeListItems().filter((listItem) =>
-        userRoles?.some((userRole) => singletonEditorRoles.has(userRole.name))
+        userRoles?.some((userRole) => fullEditorRoles.has(userRole.name))
           ? true
-          : !singletonTypes.has(listItem.getId() as string)
+          : !hiddenTypes.has(listItem.getId() as string)
       ),
     ])
 }

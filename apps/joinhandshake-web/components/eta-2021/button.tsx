@@ -17,9 +17,10 @@ export interface ETA2021ButtonProps {
 
 const button = cva(
   [
-    "block cursor-pointer py-legacy-4 px-legacy-8 whitespace-nowrap",
+    "cursor-pointer whitespace-nowrap",
     "border border-neutral-100 transform duration-30",
     "translate-x-legacy-1 -translate-y-legacy-1 hover:transform-none",
+    "flex",
   ],
   {
     variants: {
@@ -31,7 +32,7 @@ const button = cva(
       },
       size: {
         small: ["text-legacy-sm", "py-legacy-2", "px-legacy-3"],
-        large: ["text-legacy-base", "font-bold", "py-legacy-4", "px-legacy-6"],
+        large: ["text-legacy-base", "font-bold", "py-legacy-3", "px-legacy-6"],
       },
     },
   }
@@ -49,7 +50,7 @@ export const ETA2021Button = ({
     <Link
       href={href}
       target={href.startsWith("/") || href.startsWith("#") ? "" : "_blank"}
-      className={`w- block w-min ${className}`}
+      className={`inline-block ${className}`}
     >
       <span className="block bg-neutral-100">
         <span className={button({ color, size })}>{children}</span>

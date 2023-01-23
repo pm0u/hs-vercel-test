@@ -1,10 +1,10 @@
 import React from "react"
-import { CompanyHighlightSVG } from "./index"
+import { ETA2021CompanyHighlight } from "./index"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-const story: ComponentMeta<typeof CompanyHighlightSVG> = {
+const story: ComponentMeta<typeof ETA2021CompanyHighlight> = {
   title: "Components/Highlight Icon",
-  component: CompanyHighlightSVG,
+  component: ETA2021CompanyHighlight,
   parameters: {
     controls: {
       exclude: ["className"],
@@ -26,10 +26,10 @@ const story: ComponentMeta<typeof CompanyHighlightSVG> = {
 
 export default story
 
-const Template: ComponentStory<typeof CompanyHighlightSVG> = ({
+const Template: ComponentStory<typeof ETA2021CompanyHighlight> = ({
   className: string,
   ...args
-}) => <CompanyHighlightSVG {...args} />
+}) => <ETA2021CompanyHighlight {...args} />
 
 export const ShadowingOpportunities = Template.bind({})
 

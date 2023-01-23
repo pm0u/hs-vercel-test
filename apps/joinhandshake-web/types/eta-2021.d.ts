@@ -7,7 +7,7 @@ export interface ETA2021Winner extends SanitySEOFields, SanityDocument {
   name: string
   winnerSlug: Slug
   winnerLogo: SanityImageObject
-  industry: { industrySlug: Slug }
+  industry: ETA2021Industry
   excerpt: string
   aboutTheCompanyParagraph: string
   companyHighlights: IconVariant[]

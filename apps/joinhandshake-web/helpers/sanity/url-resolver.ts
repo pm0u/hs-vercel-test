@@ -13,7 +13,7 @@ export const urlResolver = (document: {
     }`
   if (document._type === "etaLanding2021") return "/early-talent-awards/2021"
   if (document._type === "etaWinners2021")
-    return `/early-talent-awards/${
+    return `/early-talent-awards/2021/${
       (document as ETA2021Winner).industry.industrySlug.current
     }/${(document as ETA2021Winner).winnerSlug.current}`
   return ""

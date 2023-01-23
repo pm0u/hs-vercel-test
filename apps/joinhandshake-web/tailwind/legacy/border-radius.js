@@ -7,5 +7,8 @@ const legacyBorderRadius = {
 }
 
 module.exports = {
-  legacyBorderRadius: prefixTailwindClasses(legacyBorderRadius, "legacy-"),
+  legacyBorderRadius: prefixTailwindClasses(legacyBorderRadius, "legacy-", [
+    "full",
+    "none",
+  ]),
 }

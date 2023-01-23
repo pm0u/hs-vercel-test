@@ -4,20 +4,21 @@ import { cva } from "class-variance-authority"
 
 export type IconVariant = keyof typeof icons
 
+export type ETA21021HighlightBackground = "periwinkle" | "green" | "yellow"
+
 export interface IconProps {
   variant: IconVariant
   /** Class applied to SVG element */
   className?: string
   /** SVG icon background */
-  background: "periwinkle" | "green" | "yellow"
+  background: ETA21021HighlightBackground
 }
 
 const iconBg = cva(
   [
     "flex items-center justify-center",
-    "mx-auto mb-legacy-4",
     "rounded-full",
-    "w-legacy-9 h-legacy-9 lg:w-legacy-16 lg:h-legacy-16 p-legacy-2 lg:p-legacy-4",
+    "w-legacy-9 h-legacy-9 legacy-lg:w-legacy-16 legacy-lg:h-legacy-16 p-legacy-2 legacy-lg:p-legacy-5",
   ],
   {
     variants: {
@@ -34,25 +35,26 @@ const iconBg = cva(
  * Renders Company highlight SVG component.
  * Icon has no set width or height and will need to be controlled by container or styling/classes.
  */
-export const CompanyHighlightSVG = ({
+export const ETA2021CompanyHighlight = ({
   variant,
   background,
+  className,
   ...props
 }: IconProps) => {
   const Icon = icons[variant]
 
   return (
-    <div className="mx-auto w-min">
-      <div className="text-center text-legacy-sm">
+    <div className={className}>
+      <div className="flex items-center gap-[14px] text-legacy-xs tracking-legacy-widest legacy-md-lg:text-legacy-sm legacy-lg:flex-col legacy-lg:text-center">
         <div className={iconBg({ background })}>
-          <Icon {...props} />
+          <Icon {...props} className="flex-1" />
         </div>
-        <p>
+        <span>
           {variant
             .match(/[A-Z][a-z]+/g)
             ?.join(" ")
             .toLocaleUpperCase()}
-        </p>
+        </span>
       </div>
     </div>
   )

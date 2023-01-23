@@ -53,7 +53,7 @@ export const Breadcrumbs = ({ crumbs }: BreadcrumbProps) => {
   return (
     <nav
       aria-label="breadcrumbs"
-      className="text-legacy-xxs uppercase leading-legacy-extra-loose tracking-legacy-widest legacy-lg:text-legacy-xs"
+      className="text-legacy-xxs uppercase leading-legacy-extra-loose tracking-legacy-widest legacy-md-lg:text-legacy-xs"
     >
       <ol>
         {crumbs.map((crumb, i) => {

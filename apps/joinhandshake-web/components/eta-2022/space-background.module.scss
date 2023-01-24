@@ -1,0 +1,163 @@
+@mixin background-squiggly-position() {
+  background-position-x: center;
+  background-position-y: center;
+}
+
+@mixin nova-position--purple() {
+  top: 0;
+  left: -10%;
+}
+
+@mixin nova-position--red() {
+  top: 12%;
+  right: -25%;
+}
+
+@mixin nova-position--green() {
+  top: 20%;
+  left: -25%;
+}
+
+@mixin planet-position--pink() {
+  right: 0;
+  top: 200px;
+}
+
+@mixin planet-position--blue() {
+  bottom: 0;
+  height: 150px;
+
+  img {
+    height: 150px;
+  }
+
+  @screen legacy-lg {
+    height: 650px;
+
+    img {
+      height: 650px;
+    }
+  }
+}
+
+@mixin planet-position--orange() {
+  display: none;
+
+  @screen legacy-md {
+    display: inline;
+    bottom: 20%;
+    left: 50px;
+  }
+
+  @screen legacy-xl {
+    bottom: 16%;
+    left: 100px;
+  }
+}
+
+.eta-2022-bg {
+  $nova-color--purple: #0c0066;
+  $nova-color--red: #660000;
+  $nova-color--green: #00dbd5;
+
+  // nova slow circle animation
+  @keyframes nova-circle {
+    0% {
+      transform: rotate(0deg) translate(-25px) rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg) translate(-25px) rotate(-360deg);
+    }
+  }
+
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: url(/images/early-talent-awards/2022/eta-2022-bg-squiggle.svg);
+  background-color: #0a0b26;
+  //background-position-x: center;
+  background-repeat: repeat-y;
+  //background-position-y: center;
+  background-attachment: scroll;
+  background-size: cover;
+
+  @include background-squiggly-position();
+
+  &__stars {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 3;
+  }
+
+  &__nova {
+    position: absolute;
+    z-index: 2;
+    width: 1000px;
+    height: 1000px;
+    animation: nova-circle 30s linear infinite;
+
+    &--large {
+      height: 1500px;
+      width: 1500px;
+    }
+
+    &--red {
+      background: radial-gradient(
+        circle closest-side,
+        $nova-color--red,
+        transparent
+      );
+      @include nova-position--red();
+    }
+
+    &--green {
+      background: radial-gradient(
+        circle closest-side,
+        $nova-color--green,
+        transparent
+      );
+      opacity: 0.65;
+      @include nova-position--green();
+    }
+
+    &--purple {
+      background: radial-gradient(
+        circle closest-side,
+        $nova-color--purple,
+        transparent
+      );
+      @include nova-position--purple();
+    }
+  }
+
+  &__planet {
+    position: absolute;
+    z-index: 4;
+
+    &--pink {
+      @include planet-position--pink();
+      height: 400px;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    &--orange {
+      @include planet-position--orange();
+    }
+
+    &--blue {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+
+      @include planet-position--blue();
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import path from "path"
-import { Configuration } from "webpack"
+import { Configuration, RuleSetRule } from "webpack"
 
 const config: ({
   config,
@@ -21,6 +21,18 @@ const config: ({
     ],
     include: path.resolve(__dirname, "../public"),
   })
+
+  // @ts-ignore
+  const styleRule: RuleSetRule = config.module?.rules
+    ?.filter((rule) => rule !== "...")
+    .find((rule) => ".module.scss".match((rule as RuleSetRule).test as RegExp))
+
+  // @ts-ignore
+  const cssObj = (styleRule as RuleSetRule).use?.find(
+    (loader) => typeof loader !== "string" && loader.loader === "css-loader"
+  )
+
+  cssObj.options.localsConvention = "camelCase"
 
   return config
 }

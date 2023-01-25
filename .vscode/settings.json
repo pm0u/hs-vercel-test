@@ -39,7 +39,8 @@
     [
       "<Transition(?:.Child)?([^>]*)>",
       "(?:enter|enterTo|enterFrom|leave|leaveTo|leaveFrom)=['\"]([^\"']*)['\"]"
-    ]
+    ],
+    "/\\*\\*?\\s?tw\\s?\\*/\\s?['\"`]([^`'\"]*)['\"`]"
   ],
   "tailwindCSS.experimental.configFile": {
     "apps/joinhandshake-web/tailwind.config.js": "apps/joinhandshake-web/**/*"

@@ -22,5 +22,5 @@ const eta2022Colors = {
 }
 
 module.exports = {
-  eta2022Colors: prefixTailwindClasses(eta2022Colors, "eta2022-"),
+  eta2022Colors: prefixTailwindClasses(eta2022Colors, { prefix: "eta2022-" }),
 }

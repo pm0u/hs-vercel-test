@@ -11,7 +11,7 @@ interface SpaceBackgroundProps {
   className?: string
 }
 
-export const SpaceBackground = ({
+export const ETA2022SpaceBackground = ({
   children,
   className = "",
 }: SpaceBackgroundProps) => {

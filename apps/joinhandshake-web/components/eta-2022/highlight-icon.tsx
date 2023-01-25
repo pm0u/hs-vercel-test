@@ -1,14 +1,14 @@
 import React from "react"
-import * as icons from "../eta/highlight-icons"
+import { icons, IconVariant } from "../eta/highlight-icons"
 import { cva } from "class-variance-authority"
 
-export type IconVariant = keyof typeof icons
+export type ETA2022HighlightBackground = "pink" | "orange" | "green"
 
 interface ETA2022HighlightIconProps
   extends Omit<React.HTMLAttributes<SVGElement>, "className"> {
   variant: IconVariant
   className?: string
-  background: "pink" | "orange" | "green"
+  background: ETA2022HighlightBackground
 }
 
 const iconBackground = cva(["rounded-full w-legacy-9 p-legacy-2"], {
@@ -21,7 +21,7 @@ const iconBackground = cva(["rounded-full w-legacy-9 p-legacy-2"], {
   },
 })
 
-export const ETA2022HighlightIcons = ({
+export const ETA2022HighlightIcon = ({
   variant,
   className = "",
   background,
@@ -31,7 +31,7 @@ export const ETA2022HighlightIcons = ({
   return (
     <div className={`flex items-center gap-legacy-3 ${className}`}>
       <div className={iconBackground({ background })}>
-        <Icon {...props} />
+        <Icon {...props} className="text-neutral-100" />
       </div>
       <p className="text-neutral-0">
         {variant.match(/[A-Z][a-z]+/g)?.join(" ")}

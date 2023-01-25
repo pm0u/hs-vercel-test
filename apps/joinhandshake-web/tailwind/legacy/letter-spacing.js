@@ -8,5 +8,5 @@ const legacyLetterSpacing = {
 }
 
 module.exports = {
-  legacyLetterSpacing: prefixTailwindClasses(legacyLetterSpacing, "legacy-"),
+  legacyLetterSpacing: prefixTailwindClasses(legacyLetterSpacing),
 }

@@ -2,7 +2,7 @@ import {
   Breadcrumbs,
   ETA2021Button,
   ETA2021CompanyHighlight,
-  ETA21021HighlightBackground,
+  ETA2021HighlightBackground,
   IconVariant,
 } from "components"
 import { SocialIcon } from "components/base"
@@ -18,7 +18,7 @@ import { ParsedUrlQuery } from "querystring"
 import { ETA2021Industry, ETA2021Winner } from "types/eta-2021"
 import { useUrl } from "hooks/use-url"
 
-const backgrounds: ETA21021HighlightBackground[] = [
+const backgrounds: ETA2021HighlightBackground[] = [
   "yellow",
   "periwinkle",
   "green",

@@ -14,5 +14,5 @@ const legacyScreens = {
 }
 
 module.exports = {
-  legacyScreens: prefixTailwindClasses(legacyScreens, "legacy-"),
+  legacyScreens: prefixTailwindClasses(legacyScreens, { sort: true }),
 }

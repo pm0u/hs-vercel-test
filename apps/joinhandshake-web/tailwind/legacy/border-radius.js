@@ -4,11 +4,12 @@ const defaultBorderRadius = require("tailwindcss/defaultConfig").theme
 
 const legacyBorderRadius = {
   ...defaultBorderRadius,
+  "2.5xl": "20px",
 }
 
 module.exports = {
-  legacyBorderRadius: prefixTailwindClasses(legacyBorderRadius, "legacy-", [
-    "full",
-    "none",
-  ]),
+  legacyBorderRadius: prefixTailwindClasses(legacyBorderRadius, {
+    skips: ["full", "DEFAULT", "none"],
+    sort: true,
+  }),
 }

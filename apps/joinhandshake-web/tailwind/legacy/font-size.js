@@ -7,6 +7,7 @@ const legacyFontSizing = {
   "1.5xl": ["22px", "1.20"], // rb-headline-3
   "2.25xl": ["26px", "1.25"], // eta2021
   "3.5xl": ["32px", "1.15"], // rb-headline-2
+  "3.95xl": ["39px", "44px"], // eta 2022
   "4.5xl": ["40px", "1.2"], // eta2021
   "4.625xl": ["42px", "1.15"], // eta2021
   "5xl": ["48px", "0.90"], // rb-headline-1-5
@@ -18,5 +19,5 @@ const legacyFontSizing = {
 }
 
 module.exports = {
-  legacyFontSize: prefixTailwindClasses(legacyFontSizing),
+  legacyFontSize: prefixTailwindClasses(legacyFontSizing, { sort: true }),
 }

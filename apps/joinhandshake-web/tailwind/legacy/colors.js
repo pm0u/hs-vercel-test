@@ -65,5 +65,5 @@ legacyColors["blue-gray"].DEFAULT = legacyColors["blue-gray"][200]
 
 module.exports = {
   // @ts-ignore
-  legacyColors: prefixTailwindClasses(legacyColors, "legacy-"),
+  legacyColors: prefixTailwindClasses(legacyColors),
 }

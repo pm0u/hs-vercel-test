@@ -1,8 +1,6 @@
 import React from "react"
-import * as icons from "../eta/highlight-icons"
+import { icons, IconVariant } from "../eta/highlight-icons"
 import { cva } from "class-variance-authority"
-
-export type IconVariant = keyof typeof icons
 
 export interface IconProps {
   variant: IconVariant

@@ -293,6 +293,7 @@ const createGalaxy = (
 
   const onBlur = () => {
     paused = true
+    cancelAnimationFrame(frame)
   }
 
   const stop = () => {

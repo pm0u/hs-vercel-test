@@ -9,5 +9,5 @@ const legacyLineHeight = {
 }
 
 module.exports = {
-  legacyLineHeight: prefixTailwindClasses(legacyLineHeight, "legacy-"),
+  legacyLineHeight: prefixTailwindClasses(legacyLineHeight, { sort: true }),
 }

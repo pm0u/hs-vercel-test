@@ -18,7 +18,7 @@ export interface ETA2021ButtonProps {
 const button = cva(
   [
     "cursor-pointer whitespace-nowrap",
-    "border border-neutral-100 transform duration-30",
+    "border border-neutral-100 transform duration-[30ms]",
     "translate-x-legacy-1 -translate-y-legacy-1 hover:transform-none",
     "flex",
   ],

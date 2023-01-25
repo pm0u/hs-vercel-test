@@ -13,9 +13,7 @@ const legacySpacing = {
 }
 
 module.exports = {
-  legacySpacing: prefixTailwindClasses(legacySpacing, "legacy-", [
-    "DEFAULT",
-    "0",
-    "px",
-  ]),
+  legacySpacing: prefixTailwindClasses(legacySpacing, {
+    skips: ["DEFAULT", "0", "px"],
+  }),
 }

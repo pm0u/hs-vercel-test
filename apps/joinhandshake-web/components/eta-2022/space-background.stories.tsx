@@ -1,21 +1,21 @@
 import React from "react"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
-import { SpaceBackground as SpaceBackgroundComponent } from "./space-background"
+import { ETA2022SpaceBackground } from "./space-background"
 
-const story: ComponentMeta<typeof SpaceBackgroundComponent> = {
+const story: ComponentMeta<typeof ETA2022SpaceBackground> = {
   title: "Components/Space Background",
-  component: SpaceBackgroundComponent,
+  component: ETA2022SpaceBackground,
 }
 
 export default story
 
-const Template: ComponentStory<typeof SpaceBackgroundComponent> = ({
+const Template: ComponentStory<typeof ETA2022SpaceBackground> = ({
   className = "",
   ...args
 }) => (
-  <SpaceBackgroundComponent {...args}>
+  <ETA2022SpaceBackground {...args}>
     <div className={`min-h-screen py-legacy-48 ${className}`}></div>
-  </SpaceBackgroundComponent>
+  </ETA2022SpaceBackground>
 )
 
 export const Short = Template.bind({})

@@ -1,17 +1,15 @@
 import React from "react"
-import * as icons from "./icons"
+import { icons, IconVariant } from "components/eta/highlight-icons"
 import { cva } from "class-variance-authority"
 
-export type IconVariant = keyof typeof icons
-
-export type ETA21021HighlightBackground = "periwinkle" | "green" | "yellow"
+export type ETA2021HighlightBackground = "periwinkle" | "green" | "yellow"
 
 export interface IconProps {
   variant: IconVariant
   /** Class applied to SVG element */
   className?: string
   /** SVG icon background */
-  background: ETA21021HighlightBackground
+  background: ETA2021HighlightBackground
 }
 
 const iconBg = cva(

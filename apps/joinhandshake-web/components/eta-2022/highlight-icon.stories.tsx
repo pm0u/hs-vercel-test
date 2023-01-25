@@ -1,10 +1,10 @@
 import React from "react"
-import { ETA2022HighlightIcons } from "./highlight-icons"
+import { ETA2022HighlightIcon } from "./highlight-icon"
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 
-const story: ComponentMeta<typeof ETA2022HighlightIcons> = {
+const story: ComponentMeta<typeof ETA2022HighlightIcon> = {
   title: "Components/Highlight Icon",
-  component: ETA2022HighlightIcons,
+  component: ETA2022HighlightIcon,
   parameters: {
     controls: {
       exclude: ["className"],
@@ -21,9 +21,9 @@ const story: ComponentMeta<typeof ETA2022HighlightIcons> = {
 
 export default story
 
-const Template: ComponentStory<typeof ETA2022HighlightIcons> = (args) => (
+const Template: ComponentStory<typeof ETA2022HighlightIcon> = (args) => (
   <div className="bg-nori p-legacy-4">
-    <ETA2022HighlightIcons {...args} />
+    <ETA2022HighlightIcon {...args} />
   </div>
 )
 

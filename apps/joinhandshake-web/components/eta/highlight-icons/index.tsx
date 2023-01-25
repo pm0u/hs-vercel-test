@@ -22,7 +22,7 @@ import { StructuredMentorshipPrograms } from "./structured-mentorship-programs"
 import { Supportive } from "./supportive"
 import { ValuesFeedback } from "./values-feedback"
 
-export {
+const icons = {
   LeadershipOpportunities,
   NetworkingOpportunities,
   ShadowingOpportunities,
@@ -47,3 +47,7 @@ export {
   Supportive,
   ValuesFeedback,
 }
+
+export type IconVariant = keyof typeof icons
+
+export { icons }

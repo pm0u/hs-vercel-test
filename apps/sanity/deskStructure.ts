@@ -16,7 +16,12 @@ export const singletonTypes = new Set(["etaLanding2021"])
 /**
  * Types that are explicitly organized outside of the "catch all"
  */
-const organizedTypes = new Set(["etaWinners2021", "etaIndustry2021"])
+const organizedTypes = new Set([
+  "etaWinners2021",
+  "etaIndustry2021",
+  "etaWinners2022",
+  "etaCategory2022",
+])
 
 /**
  * All of these will be hidden in the catch all area, except for users
@@ -73,6 +78,20 @@ export const structure: (
               S.listItem()
                 .title("Industries")
                 .child(S.documentTypeList("etaIndustry2021")),
+            ])
+        ),
+      S.listItem()
+        .title("ETA 2022")
+        .child(
+          S.list()
+            .id("eta2022Winners")
+            .items([
+              S.listItem()
+                .title("Winners")
+                .child(S.documentTypeList("etaWinners2022")),
+              S.listItem()
+                .title("Industries")
+                .child(S.documentTypeList("etaCategory2022")),
             ])
         ),
       S.divider(),

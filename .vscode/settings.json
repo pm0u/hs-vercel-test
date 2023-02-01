@@ -2,7 +2,7 @@
   "eslint.workingDirectories": ["./apps/joinhandshake-web", "./apps/sanity"],
   "files.associations": {
     "**/apps/joinhandshake-web/**/*.css": "tailwindcss",
-    "**/apps/joinhandshake-web/**/*.module.css": "tailwindcss"
+    "**/apps/joinhandshake-web/**/*.module.css": "postcss"
   },
   "editor.quickSuggestions": {
     "strings": "on"

@@ -11,6 +11,7 @@ const legacyScreens = {
   "md-lg": "1024px", // eta 2021
   lg: "1200px",
   xl: "1440px",
+  "3xl": "1920px",
 }
 
 module.exports = {

@@ -55,7 +55,7 @@
   }
 }
 
-.eta-2022-bg {
+.eta2022Bg {
   $nova-color--purple: #0c0066;
   $nova-color--red: #660000;
   $nova-color--green: #00dbd5;
@@ -85,26 +85,26 @@
 
   @include background-squiggly-position();
 
-  &__stars {
+  &Stars {
     position: absolute;
     display: block;
     width: 100%;
     z-index: 3;
   }
 
-  &__nova {
+  &Nova {
     position: absolute;
     z-index: 2;
     width: 1000px;
     height: 1000px;
     animation: nova-circle 30s linear infinite;
 
-    &--large {
+    &Large {
       height: 1500px;
       width: 1500px;
     }
 
-    &--red {
+    &Red {
       background: radial-gradient(
         circle closest-side,
         $nova-color--red,
@@ -113,7 +113,7 @@
       @include nova-position--red();
     }
 
-    &--green {
+    &Green {
       background: radial-gradient(
         circle closest-side,
         $nova-color--green,
@@ -123,7 +123,7 @@
       @include nova-position--green();
     }
 
-    &--purple {
+    &Purple {
       background: radial-gradient(
         circle closest-side,
         $nova-color--purple,
@@ -133,24 +133,25 @@
     }
   }
 
-  &__planet {
+  &Planet {
     position: absolute;
     z-index: 4;
 
-    &--pink {
+    &Pink {
       @include planet-position--pink();
       height: 400px;
 
       img {
         height: 100%;
+        width: auto;
       }
     }
 
-    &--orange {
+    &Orange {
       @include planet-position--orange();
     }
 
-    &--blue {
+    &Blue {
       width: 100%;
 
       img {

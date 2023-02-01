@@ -1,11 +1,11 @@
 import React from "react"
-import { icons, IconVariant } from "components/eta/highlight-icons"
+import { icons, EtaIconVariant } from "components/eta/highlight-icons"
 import { cva } from "class-variance-authority"
 
 export type ETA2021HighlightBackground = "periwinkle" | "green" | "yellow"
 
 export interface IconProps {
-  variant: IconVariant
+  variant: EtaIconVariant
   /** Class applied to SVG element */
   className?: string
   /** SVG icon background */

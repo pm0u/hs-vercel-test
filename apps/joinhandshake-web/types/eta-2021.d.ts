@@ -1,5 +1,5 @@
 import { SanityImageObject } from "@sanity/image-url/lib/types/types"
-import { IconVariant, IndustryBackgroundColor } from "../components"
+import { EtaIconVariant, IndustryBackgroundColor } from "../components"
 import { SanitySEOFields } from "./sanity"
 import { SanityDocument, Slug } from "sanity/lib/exports"
 
@@ -10,7 +10,7 @@ export interface ETA2021Winner extends SanitySEOFields, SanityDocument {
   industry: ETA2021Industry
   excerpt: string
   aboutTheCompanyParagraph: string
-  companyHighlights: IconVariant[]
+  companyHighlights: EtaIconVariant[]
   studentQuote: string
   shareButtonText: string
 }

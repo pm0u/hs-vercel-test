@@ -3,7 +3,7 @@ import {
   ETA2021Button,
   ETA2021CompanyHighlight,
   ETA2021HighlightBackground,
-  IconVariant,
+  EtaIconVariant,
 } from "components"
 import { SocialIcon } from "components/base"
 import { useReusableImages, useTheme } from "contexts"
@@ -115,7 +115,7 @@ const WinnerPage = ({ company }: { company: ETA2021WinnerData }) => {
             <div className="flex max-w-[500px] flex-col gap-legacy-4 legacy-lg:mx-auto legacy-lg:flex-row legacy-lg:gap-legacy-6">
               {company.companyHighlights.map((highlight, i) => (
                 <ETA2021CompanyHighlight
-                  variant={toPascalCase(highlight) as IconVariant}
+                  variant={toPascalCase(highlight) as EtaIconVariant}
                   key={highlight}
                   background={backgrounds[i]}
                   className="flex-1"

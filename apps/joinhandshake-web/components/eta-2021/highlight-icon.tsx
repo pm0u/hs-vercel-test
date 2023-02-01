@@ -1,9 +1,9 @@
 import React from "react"
-import { icons, IconVariant } from "../eta/highlight-icons"
+import { icons, EtaIconVariant } from "../eta/highlight-icons"
 import { cva } from "class-variance-authority"
 
 export interface IconProps {
-  variant: IconVariant
+  variant: EtaIconVariant
   /** Class applied to SVG element */
   className?: string
   /** SVG icon background */

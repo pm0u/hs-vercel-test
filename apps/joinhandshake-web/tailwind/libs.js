@@ -2,8 +2,8 @@
 
 /**
  *
- * @param {string} a
- * @param {string} b
+ * @param {[string, string]} a
+ * @param {[string, string]} b
  * @returns
  */
 const sortStrings = (a, b) =>

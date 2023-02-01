@@ -47,6 +47,12 @@ export const NoiGrotesk = localFont({
   preload: true,
   fallback: ["sans-serif"],
   variable: "--font-noi-grotesk",
+  declarations: [
+    {
+      prop: "font-feature-settings",
+      value: '"ss03" 1,"ss06" 1,"ss12" 1;',
+    },
+  ],
 })
 
 export const SansPlomb = localFont({

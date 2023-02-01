@@ -54,7 +54,7 @@ export const ETA2022SpaceBackground = ({
       >
         <Image {...orangePlanetProps} alt="" />
       </div>
-      {children}
+      <div className="relative z-[5]">{children}</div>
     </div>
   )
 }

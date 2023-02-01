@@ -6,10 +6,9 @@ import { Breadcrumbs } from "components"
 import { urlResolver } from "helpers/sanity/url-resolver"
 import { useReusableImages } from "contexts"
 import { useSanityImage } from "hooks/use-sanity-image"
-import { getLogoAspectRatio } from ".."
+import { getLogoSize } from "helpers/eta"
 import Image from "next/image"
 import Link from "next/link"
-import { getImageDimensions } from "helpers/sanity/images"
 import { cva } from "class-variance-authority"
 import { ParsedUrlQuery } from "querystring"
 
@@ -39,8 +38,7 @@ const companyTileLogo = cva(
 
 const CompanyTile = ({ company }: { company: ETA2021WinnerData }) => {
   const imageProps = useSanityImage(company.winnerLogo.asset)
-  const { aspectRatio } = getImageDimensions(company.winnerLogo.asset._ref)
-  const logoSize = getLogoAspectRatio(aspectRatio)
+  const { logoSize } = getLogoSize(company.winnerLogo)
   return (
     <Link
       className="flex flex-col items-center py-legacy-6"

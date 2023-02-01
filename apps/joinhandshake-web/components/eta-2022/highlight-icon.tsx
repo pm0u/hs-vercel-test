@@ -1,12 +1,12 @@
 import React from "react"
-import { icons, IconVariant } from "../eta/highlight-icons"
+import { icons, EtaIconVariant } from "../eta/highlight-icons"
 import { cva } from "class-variance-authority"
 
 export type ETA2022HighlightBackground = "pink" | "orange" | "green"
 
 interface ETA2022HighlightIconProps
   extends Omit<React.HTMLAttributes<SVGElement>, "className"> {
-  variant: IconVariant
+  variant: EtaIconVariant
   className?: string
   background: ETA2022HighlightBackground
 }

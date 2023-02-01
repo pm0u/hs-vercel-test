@@ -48,6 +48,6 @@ const icons = {
   ValuesFeedback,
 }
 
-export type IconVariant = keyof typeof icons
+export type EtaIconVariant = keyof typeof icons
 
 export { icons }

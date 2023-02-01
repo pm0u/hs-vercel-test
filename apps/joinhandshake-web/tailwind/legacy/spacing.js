@@ -10,10 +10,12 @@ const legacySpacing = {
    * example:
    * '13': '3.25rem',
    */
+  2.5: "10px",
 }
 
 module.exports = {
   legacySpacing: prefixTailwindClasses(legacySpacing, {
     skips: ["DEFAULT", "0", "px"],
+    sort: true,
   }),
 }

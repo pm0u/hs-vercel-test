@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import { IconVariant } from "components/eta/highlight-icons"
+import { EtaIconVariant } from "components/eta/highlight-icons"
 import { useReusableImages } from "contexts"
 import { useSanityImage } from "hooks/use-sanity-image"
 import { ETA2022PastWinnerBadge } from "./past-winner-badge"
@@ -12,7 +12,7 @@ import {
 interface AboutCompanyProps {
   name: string
   pastWinner: boolean
-  highlights: IconVariant[]
+  highlights: EtaIconVariant[]
   excerpt: string
   about: string
   className?: string

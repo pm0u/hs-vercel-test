@@ -3,7 +3,6 @@ import { ETA2021Industry, ETA2021Winner } from "types/eta-2021"
 import { ETA2021WinnersCard } from "components/eta-2021/winners-card"
 import { urlResolver } from "helpers/sanity/url-resolver"
 import { useSanityImage } from "hooks/use-sanity-image"
-import { getImageDimensions } from "helpers/sanity/images"
 import Image from "next/image"
 import { cva } from "class-variance-authority"
 import {
@@ -16,6 +15,7 @@ import Link from "next/link"
 import { ETA2021Layout } from "layouts/eta-2021"
 import { useTheme } from "contexts"
 import { YoutubePopout } from "components/base"
+import { getLogoSize } from "helpers/eta"
 
 type ETA2021WinnerData = Pick<
   ETA2021Winner,
@@ -41,13 +41,6 @@ interface ETA2021LandingPageProps {
   }
 }
 
-export const getLogoAspectRatio = (aspectRatio: number) => {
-  if (aspectRatio < 1) return "tall"
-  if (aspectRatio >= 1 && aspectRatio < 1.4) return "square"
-  if (aspectRatio >= 1.4 && aspectRatio < 4.6) return "wide"
-  return "veryWide"
-}
-
 const companyLogo = cva(["w-auto m-legacy-6"], {
   variants: {
     logoSize: {
@@ -63,8 +56,7 @@ const CompanyLogo = ({ company }: { company: ETA2021WinnerData }) => {
   const { winnerLogo, name } = company
   const url = urlResolver(company)
   const imageProps = useSanityImage(winnerLogo)
-  const { aspectRatio } = getImageDimensions(winnerLogo.asset._ref)
-  const logoSize = getLogoAspectRatio(aspectRatio)
+  const { logoSize, aspectRatio } = getLogoSize(winnerLogo)
   return (
     <Link href={url}>
       <Image

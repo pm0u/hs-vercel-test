@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts", "**/*.js"],
   "exclude": ["node_modules", ".next", "storybook-static"]

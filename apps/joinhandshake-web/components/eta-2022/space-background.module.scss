@@ -13,9 +13,29 @@
   right: -25%;
 }
 
+@mixin nova-position--red-category() {
+  top: -500px;
+  right: -750px;
+
+  @screen legacy-md-lg {
+    top: -25%;
+    right: -25%;
+  }
+}
+
 @mixin nova-position--green() {
   top: 20%;
   left: -25%;
+}
+
+@mixin nova-position--green-category() {
+  top: 150px;
+  left: -600px;
+
+  @screen legacy-xl {
+    top: 0;
+    left: -25%;
+  }
 }
 
 @mixin planet-position--pink() {
@@ -111,6 +131,16 @@
         transparent
       );
       @include nova-position--red();
+
+      &Category {
+        background: radial-gradient(
+          circle closest-side,
+          $nova-color--red,
+          transparent
+        );
+
+        @include nova-position--red-category();
+      }
     }
 
     &Green {
@@ -121,6 +151,16 @@
       );
       opacity: 0.65;
       @include nova-position--green();
+
+      &Category {
+        background: radial-gradient(
+          circle closest-side,
+          $nova-color--green,
+          transparent
+        );
+        opacity: 0.65;
+        @include nova-position--green-category();
+      }
     }
 
     &Purple {
@@ -145,10 +185,37 @@
         height: 100%;
         width: auto;
       }
+
+      &Category {
+        //@include planet-position--pink();
+
+        height: 400px;
+        right: 0;
+        bottom: 25%;
+
+        @screen legacy-md-lg {
+          bottom: 32%;
+        }
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
     }
 
     &Orange {
       @include planet-position--orange();
+
+      &Category {
+        display: none;
+
+        @screen legacy-md-lg {
+          display: inline;
+          bottom: 40%;
+          left: 100px;
+        }
+      }
     }
 
     &Blue {
@@ -161,4 +228,7 @@
       @include planet-position--blue();
     }
   }
+}
+
+.planetOrangeCategory {
 }

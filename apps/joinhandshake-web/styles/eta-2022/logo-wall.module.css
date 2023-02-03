@@ -1,0 +1,284 @@
+.logos {
+  @apply flex flex-wrap items-baseline justify-center;
+
+  --max-height: 40px;
+
+  @screen legacy-sm-md {
+    --max-height: 50px;
+  }
+
+  & img {
+    height: var(--max-height);
+  }
+
+  & li {
+    @apply mx-[22px];
+
+    @screen legacy-md-lg {
+      @apply mx-legacy-11;
+    }
+
+    min-height: 100px;
+  }
+
+  :global {
+    .logo--1 {
+      height: calc(var(--max-height) * 13 / 10);
+    }
+
+    .logo--2 {
+      height: calc(var(--max-height) * 9 / 10);
+    }
+
+    .logo--3 {
+      height: calc(var(--max-height) * 8 / 10);
+    }
+
+    .logo--4 {
+      height: calc(var(--max-height) * 7 / 10);
+    }
+
+    .logo--5 {
+      height: calc(var(--max-height) * 6.5 / 10);
+    }
+
+    .logo--6 {
+      height: calc(var(--max-height) * 6 / 10);
+    }
+
+    .logo--7 {
+      height: calc(var(--max-height) * 5.5 / 10);
+    }
+
+    .logo--8 {
+      height: calc(var(--max-height) * 4.5 / 10);
+    }
+
+    .logo--9 {
+      height: calc(var(--max-height) * 4 / 10);
+    }
+
+    .logo--10 {
+      height: calc(var(--max-height) * 4 / 10);
+    }
+
+    .logo--11 {
+      height: calc(var(--max-height) * 3.5 / 10);
+    }
+
+    .logo--12 {
+      height: calc(var(--max-height) * 3 / 10);
+    }
+
+    .logo--13 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--14 {
+      height: calc(var(--max-height) * 3.2 / 10);
+    }
+
+    .logo--15 {
+      height: calc(var(--max-height) * 3.2 / 10);
+    }
+
+    .logo--16 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--17 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--18 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--19 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--20 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--21 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--22 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--23 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--24 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+
+    .logo--25 {
+      height: calc(var(--max-height) * 2.5 / 10);
+    }
+  }
+}
+
+.home {
+  @apply justify-between;
+
+  &::after {
+    content: "";
+    flex: auto;
+  }
+
+  li {
+    @apply mx-legacy-4;
+
+    min-height: 80px;
+
+    @screen legacy-md-lg {
+      @apply mx-legacy-6;
+    }
+  }
+
+  --max-height: 30px;
+
+  @screen legacy-sm-md {
+    --max-height: 40px;
+  }
+
+  :global {
+    /*  Individual Company overrides to dial specific images in */
+
+    .logo-deloitte {
+      height: calc(var(--max-height) * 6 / 10);
+    }
+
+    .logo-visa {
+      height: calc(var(--max-height) * 7 / 10);
+    }
+
+    .logo-bcg {
+      height: calc(var(--max-height) * 8 / 10);
+    }
+
+    .logo-cgi {
+      height: calc(var(--max-height) * 8 / 10);
+    }
+
+    .logo-the-walt-disney-company {
+      height: calc(var(--max-height) * 10 / 10);
+    }
+
+    .logo-granite {
+      height: calc(var(--max-height) * 5 / 10);
+    }
+
+    .logo-aflac {
+      height: calc(var(--max-height) * 7 / 10);
+    }
+
+    .logo-3m {
+      height: calc(var(--max-height) * 8.5 / 10);
+    }
+
+    .logo-aon {
+      height: calc(var(--max-height) * 7 / 10);
+    }
+
+    .logo-cummins-inc {
+      height: calc(var(--max-height) * 12.5 / 10);
+    }
+
+    .logo-nationwide {
+      height: calc(var(--max-height) * 14.5 / 10);
+    }
+
+    .logo-mars {
+      height: calc(var(--max-height) * 7.5 / 10);
+    }
+
+    .logo-easterseals-southern-california {
+      height: calc(var(--max-height) * 13 / 10);
+    }
+
+    .logo-mitre-corporation {
+      height: calc(var(--max-height) * 6.5 / 10);
+    }
+
+    .logo-echo-global-logistics {
+      height: calc(var(--max-height) * 6 / 10);
+    }
+
+    .logo-camp-micah {
+      height: calc(var(--max-height) * 10 / 10);
+    }
+
+    .logo-pnnl {
+      height: calc(var(--max-height) * 14 / 10);
+    }
+  }
+}
+
+.leftToRightSlant {
+  @apply relative bg-neutral-0;
+
+  padding-top: 70px;
+  padding-bottom: 70px;
+  margin-top: 160px;
+  margin-bottom: 160px;
+
+  &::before {
+    @apply absolute block w-full;
+
+    content: "";
+    top: -35px;
+    border-top: 70px solid #fff;
+    transform: skewY(2deg);
+
+    @media (min-width: 125rem) {
+      transform: skewY(1deg);
+    }
+  }
+
+  &::after {
+    @apply absolute block w-full;
+
+    content: "";
+    bottom: -35px;
+    border-top: 70px solid #fff;
+    transform: skewY(-2deg);
+
+    @media (min-width: 125rem) {
+      transform: skewY(-1deg);
+    }
+  }
+}
+
+.rightToLeftSlant {
+  @apply relative bg-neutral-0;
+
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  &::before {
+    @apply absolute block w-full;
+
+    content: "";
+    top: -35px;
+    border-top: 70px solid #fff;
+    transform: skewY(-2deg);
+  }
+
+  &::after {
+    @apply absolute block w-full;
+
+    content: "";
+    bottom: -35px;
+    border-bottom: 70px solid #fff;
+    transform: skewY(2deg);
+  }
+}

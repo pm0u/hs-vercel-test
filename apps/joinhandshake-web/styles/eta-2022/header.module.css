@@ -1,0 +1,15 @@
+.headerContainer {
+  @apply mx-auto flex max-w-[80rem] flex-col items-center py-legacy-12;
+
+  @screen legacy-sm-md {
+    @apply flex-row-reverse py-legacy-24;
+  }
+}
+
+.headerContent {
+  @apply max-w-[449px] px-[0.625rem] text-center;
+
+  @screen legacy-sm-md {
+    @apply mx-[15px] w-7/12 max-w-none pr-legacy-5 pl-[30px] text-left;
+  }
+}

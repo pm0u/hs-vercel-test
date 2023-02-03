@@ -6,14 +6,18 @@ import { useReusableImages } from "contexts"
 import { useSanityImage } from "hooks/use-sanity-image"
 import { usePrefersReducedMotion } from "hooks/util/use-prefers-reduced-motion"
 
+export type SpaceBackgroundStyle = "Category" | ""
+
 interface SpaceBackgroundProps {
   children: React.ReactNode
   className?: string
+  style?: SpaceBackgroundStyle
 }
 
 export const ETA2022SpaceBackground = ({
   children,
   className = "",
+  style = "",
 }: SpaceBackgroundProps) => {
   const { eta2022HotPinkPlanet, eta2022BluePlanet, eta2022OrangePlanet } =
     useReusableImages()
@@ -34,13 +38,19 @@ export const ETA2022SpaceBackground = ({
         className={`${styles.eta2022BgNova} ${styles.eta2022BgNovaPurple}`}
       />
       <div
-        className={`${styles.eta2022BgNova} ${styles.eta2022BgNovaRed} ${styles.eta2022BgNovaLarge}`}
+        className={`${styles.eta2022BgNova} ${
+          styles[`eta2022BgNovaRed${style}`]
+        } ${style !== "Category" ? styles.eta2022BgNovaLarge : ""}`}
       />
       <div
-        className={`${styles.eta2022BgNova} ${styles.eta2022BgNovaGreen} ${styles.eta2022BgNovaLarge}`}
+        className={`${styles.eta2022BgNova} ${
+          styles[`eta2022BgNovaGreen${style}`]
+        } ${style !== "Category" ? styles.eta2022BgNovaLarge : ""}`}
       />
       <div
-        className={`${styles.eta2022BgPlanet} ${styles.eta2022BgPlanetPink}`}
+        className={`${styles.eta2022BgPlanet} ${
+          styles[`eta2022BgPlanetPink${style}`]
+        }`}
       >
         <Image {...pinkPlanetProps} alt="" priority />
       </div>
@@ -50,7 +60,9 @@ export const ETA2022SpaceBackground = ({
         <Image {...bluePlanetProps} alt="" />
       </div>
       <div
-        className={`${styles.eta2022BgPlanet} ${styles.eta2022BgPlanetOrange}`}
+        className={`${styles.eta2022BgPlanet} ${
+          styles[`eta2022BgPlanetOrange${style}`]
+        }`}
       >
         <Image {...orangePlanetProps} alt="" />
       </div>

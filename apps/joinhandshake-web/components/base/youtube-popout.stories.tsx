@@ -18,4 +18,5 @@ export const Example = Template.bind({})
 Example.args = {
   videoId: "MssQgr1ZwU8",
   children: "Click it!",
+  playIcon: null,
 }

@@ -5,6 +5,7 @@ import { button } from "./button"
 import { imageWithText } from "./image-with-text"
 import { seo } from "./seo"
 import { textWidth } from "./text-width"
+import { youtubeVideo } from "./youtube-video"
 
 export const objects = [
   ctaBlock,
@@ -14,4 +15,5 @@ export const objects = [
   imageWithText,
   seo,
   textWidth,
+  youtubeVideo,
 ]

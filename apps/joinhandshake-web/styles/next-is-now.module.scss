@@ -1,0 +1,1836 @@
+@use "sass:math";
+
+@mixin loading-anim {
+  z-index: 1;
+  content: "";
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+  background-position: center center;
+  background-image: url(/images/loading-anim.gif);
+}
+
+@mixin screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+// This fancy button animation requires a wrapper on the text.  Normally that will be button > span.  But on rare occasionas (e.g. styling marketo forms or on a full moon), we'll need a different inner selector
+@mixin button--shadow($inner-element: span) {
+  padding: 0;
+  min-height: auto;
+  border-radius: 0;
+  background: $black;
+  position: relative;
+  @include font-size(16, 24);
+
+  #{$inner-element} {
+    display: block;
+    padding: 16px 24px;
+    background: $white;
+    pointer-events: none;
+    border: 1px solid $black;
+    transform: translate(5px, -5px);
+    transition: transform 0.03s linear;
+  }
+
+  &.button--white #{$inner-element} {
+    background: $white;
+  }
+  &.button--red #{$inner-element} {
+    background: $red;
+  }
+  &.button--green-light #{$inner-element} {
+    background: $green-light;
+  }
+  &.button--twilight #{$inner-element} {
+    background: $twilight;
+  }
+  &.button--black #{$inner-element} {
+    background: $black;
+  }
+  &.button--yellow #{$inner-element} {
+    background: $yellow;
+  }
+  &.button--purple #{$inner-element} {
+    background: $original-purple;
+  }
+
+  &:hover,
+  &:focus {
+    transform: none;
+    background: $black;
+
+    #{$inner-element} {
+      transform: none;
+    }
+  }
+}
+
+@mixin font-size($size, $line) {
+  font-size: #{$size}px;
+  line-height: math.div($line, $size);
+  --line-height: #{$line}px;
+}
+
+@mixin pull-page-behind-nav-with-negative-margins {
+  margin-top: calc(-1 * $mobile-header-height);
+
+  @screen legacy-md {
+    margin-top: calc(-1 * $tablet-header-height);
+  }
+
+  @screen legacy-lg {
+    margin-top: calc(-1 * $desktop-header-height);
+  }
+}
+
+@mixin semantic-only-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* @todo set this value when we have a header */
+$mobile-header-height: var(--header-height, 0px);
+$tablet-header-height: var(--header-height, 0px);
+$desktop-header-height: var(--header-height, 0px);
+
+$nin-cobalt: #3043e9;
+$nin-spring: theme("colors.legacy-green.400");
+$nin-denim: #6490f2;
+$nin-yellow: #ffdf7d;
+$black: #000;
+$white: #fff;
+$red: theme("colors.red.DEFAULT");
+$green-light: theme("colors.legacy-green.300");
+$twilight: theme("colors.legacy-twilight.DEFAULT");
+$yellow: theme("colors.legacy-yellow.DEFAULT");
+$original-purple: theme("colors.legacy-purple.DEFAULT");
+$gray-100: theme("colors.legacy-gray.100");
+
+$chicago-stack: var(--font-chicago-flf);
+$geneva-stack: var(--font-geneva);
+$suisse-stack: var(--font-noi-grotesk); //rebrand update
+$ginto-stack: var(--font-noi-grotesk); //rebrand update
+
+@mixin nin-type-window-title {
+  font-family: $chicago-stack;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.004em;
+  text-align: center;
+}
+
+@mixin nin-type-window-title--transformed {
+  font-family: $suisse-stack;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0em;
+}
+
+@mixin nin-type-headline {
+  font-family: $chicago-stack;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0px;
+
+  @screen legacy-md {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
+@mixin nin-type-headline--transformed {
+  font-family: $ginto-stack;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  letter-spacing: 0px;
+
+  @screen legacy-md {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+@mixin nin-type-paragraph {
+  font-family: $geneva-stack;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-type-paragraph--transformed {
+  font-family: $suisse-stack;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-type-label {
+  font-family: $geneva-stack;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-type-label--transformed {
+  font-family: $suisse-stack;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-type-button {
+  font-family: $geneva-stack;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-type-button--transformed {
+  font-family: $suisse-stack;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+@mixin nin-button {
+  @include nin-type-button;
+  &,
+  &:hover {
+    color: $black;
+  }
+  background: $white;
+  border-radius: 0;
+  text-decoration: none;
+  border: 1px solid $black;
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 16px 0 0;
+  box-shadow: 1px 1px $black;
+  min-height: auto;
+  cursor: pointer;
+}
+
+@mixin nin-button--transformed {
+  @include button--shadow;
+  @include nin-type-button--transformed;
+  border: none;
+  box-shadow: none;
+  margin: 20px 0 0;
+
+  span,
+  button {
+    background: $nin-spring;
+    padding: 10px 16px;
+    transform: translate(-4px, -4px);
+  }
+}
+
+$nin-gradient: linear-gradient(to bottom, $nin-denim 0%, $nin-spring 100%);
+
+@keyframes nin-transform {
+  0% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  99% {
+    // If we take it to 100, this tranform will be left on the element and may brake things that are using transform!
+    transform: scale(1);
+  }
+}
+
+.ninWrapper :global {
+  .nin {
+    @include pull-page-behind-nav-with-negative-margins;
+
+    padding-top: 24px;
+    padding-bottom: 100px;
+    overflow: hidden;
+    user-select: none;
+    background: $nin-gradient;
+    background-attachment: fixed;
+
+    .youtube-player-button {
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(-50%, -50%);
+        background-position: center center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 60px;
+        height: 60px;
+        background-image: url(/images/next-is-now/youtube-player__play__untransformed.svg);
+
+        @media (min-width: theme("screens.legacy-sm")) and (max-width: theme("screens.legacy-md")) {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    &--loaded {
+      overflow-y: auto;
+    }
+
+    a {
+      &,
+      &:focus,
+      &:hover,
+      &:active {
+        color: inherit;
+      }
+    }
+
+    .site-header {
+      display: none;
+    }
+
+    .site-footer {
+      display: none;
+    }
+
+    &__loading-screen {
+      background: #111;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+      transition: opacity 0.5s, pointer-events 0s 0.8s;
+
+      &__card {
+        box-shadow: 1px 1px $black;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        background: $white;
+        padding: 49px 14px 12px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // display: none;
+
+        &__title {
+          @include nin-type-headline;
+          max-width: 13em;
+          margin: auto;
+        }
+
+        &__progress-indicator {
+          @include nin-type-headline;
+          @include font-size(20, 26);
+          overflow: hidden;
+          max-width: 90%;
+          margin: auto;
+        }
+
+        &__details {
+          @include nin-type-label;
+          @include font-size(14, 18);
+          display: flex;
+          margin-top: 44px;
+          justify-content: space-between;
+          text-align: left;
+          align-items: flex-end;
+        }
+      }
+
+      &--site-loaded {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      // &--fonts-loaded {
+      //   .nin__loading-screen__card {
+      //     display: block;
+      //   }
+      // }
+    }
+
+    &__background {
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &__window {
+      @include nin-type-paragraph;
+
+      z-index: 1;
+      position: relative;
+      border: 1px solid $black;
+      background: $white;
+      filter: drop-shadow(2px 2px $black);
+      width: 100%;
+
+      &__header {
+        height: 28px;
+        border-bottom: 1px solid $black;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+
+        // BG lines
+        &::before {
+          content: "";
+          position: absolute;
+          border-top: 1px solid $black;
+          border-bottom: 1px solid $black;
+          top: 12px;
+          height: 4px;
+          right: 4px;
+          left: 4px;
+        }
+
+        // Close button
+        &::after {
+          content: "";
+          position: absolute;
+          border: 1px solid $black;
+          height: 16px;
+          width: 16px;
+          top: 6px;
+          left: 14px;
+          background: $white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          @include nin-type-window-title;
+
+          background: $white;
+          padding: 0 8px;
+          z-index: 1;
+          position: relative;
+          display: inline-block;
+        }
+      }
+
+      &__body {
+        background: $white;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          @include nin-type-headline;
+          margin: 0;
+
+          & + p {
+            margin-top: 12px;
+          }
+        }
+
+        p {
+          margin: 21px 0 0;
+        }
+      }
+
+      &__button {
+        @include nin-button;
+      }
+
+      &__video {
+        display: flex;
+        flex-wrap: wrap;
+
+        .youtube-player-button {
+          order: 0;
+          border-radius: 0;
+          filter: url(#posterize) grayscale(100%); // #posterize refers to an svg (w/ svg filter) inlined in the next-is-now template
+        }
+
+        h4 {
+          @include nin-type-paragraph;
+          order: 1;
+        }
+      }
+
+      &__icon-list {
+        @include semantic-only-list;
+
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -10px;
+
+        &__item {
+          margin: 10px 10px 10px 0;
+          @screen legacy-md {
+            margin: 12px;
+          }
+
+          .nin__icon {
+            width: 130px;
+          }
+        }
+      }
+
+      &__fake-folder-details {
+        @include nin-type-label;
+        height: 26px;
+        margin-bottom: 3px;
+        border-bottom: 1px solid $black;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        position: relative;
+
+        @media (min-width: theme("screens.legacy-sm")) and (max-width: theme("screens.legacy-md")) {
+          padding: 0 5px;
+          justify-content: space-between;
+        }
+
+        &::after {
+          height: 1px;
+          background: $black;
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          content: "";
+        }
+
+        &__center {
+          // only center position on medium and up
+          @screen legacy-md {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+
+      &__fake-scrollbars {
+        $nin-scrollbar-width: 28px;
+        padding: 0 $nin-scrollbar-width $nin-scrollbar-width 0;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: $nin-scrollbar-width + 1px;
+          width: $nin-scrollbar-width + 1px;
+          background-image: url(/images/next-is-now/gui-icon-resize.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          bottom: 0;
+          right: 0;
+        }
+
+        &__bottom,
+        &__right {
+          position: absolute;
+          bottom: 0;
+
+          &::after,
+          &::before {
+            content: "";
+            border: 1px solid $black;
+            position: absolute;
+            height: $nin-scrollbar-width + 1px;
+            width: $nin-scrollbar-width + 1px;
+            background-image: url(/images/next-is-now/gui-icon-right-arrow.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        &__bottom {
+          left: 0;
+          right: 0;
+          height: $nin-scrollbar-width;
+          border-top: 1px solid $black;
+          &::before {
+            bottom: -1px;
+            left: -1px;
+            transform: rotate(180deg);
+          }
+          &::after {
+            bottom: -1px;
+            right: $nin-scrollbar-width - 1px;
+          }
+        }
+
+        &__right {
+          top: 0;
+          right: 0;
+          width: $nin-scrollbar-width;
+          border-left: 1px solid $black;
+          &::before {
+            top: -1px;
+            right: -1px;
+            transform: rotate(-90deg);
+          }
+          &::after {
+            right: -1px;
+            transform: rotate(90deg);
+            bottom: $nin-scrollbar-width - 1px;
+          }
+        }
+      }
+
+      &--todo {
+        max-width: 585px;
+        .nin__window__body {
+          text-align: center;
+          padding: 24px 36px 36px;
+
+          @screen legacy-md {
+            padding: 24px 70px 36px;
+          }
+
+          h2 {
+            max-width: 10em;
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+      }
+
+      &--videos {
+        max-width: 569px;
+
+        &__featured-video {
+          padding: 10px 10px 20px;
+          border-bottom: 1px solid $black;
+
+          .youtube-player-button {
+            border: 4px solid $white;
+            outline: 4px solid $black;
+            margin: 4px;
+          }
+
+          h4 {
+            @include font-size(18, 24);
+            margin-top: 12px;
+          }
+        }
+        &__secondary-videos {
+          padding: 20px 10px 10px;
+
+          h3 {
+            font-family: $geneva-stack;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0px;
+            text-align: left;
+            margin: 0 0 4px;
+          }
+
+          ul {
+            @include semantic-only-list;
+            border: 1px solid $black;
+
+            li {
+              margin: 10px;
+            }
+
+            display: flex;
+
+            li {
+              width: 50%;
+
+              .youtube-player-button::after {
+                width: 60px;
+                height: 60px;
+                @media (min-width: theme("screens.legacy-sm")) and (max-width: theme("screens.legacy-md")) {
+                  width: 40px;
+                  height: 40px;
+                }
+              }
+            }
+            // }
+          }
+
+          .youtube-player-button {
+            border: 1px solid $black;
+          }
+
+          h4 {
+            margin-top: 8px;
+
+            // Larger font breaks width on small screens, so reducing it here
+            @media (min-width: theme("screens.legacy-sm")) and (max-width: theme("screens.legacy-md")) {
+              @include font-size(14, 24);
+            }
+          }
+        }
+      }
+
+      &--featured-resource {
+        max-width: 380px;
+
+        .nin__window__body {
+          padding: 24px 45px 30px;
+          text-align: center;
+        }
+      }
+
+      &--helpful-resources {
+        max-width: 589px;
+        min-height: 348px;
+
+        .nin__window__body {
+          padding: 20px 5px 36px;
+          text-align: center;
+
+          @screen legacy-md {
+            padding: 20px 30px 36px;
+          }
+        }
+      }
+
+      &--mailing-list {
+        width: 300px;
+        min-height: 216px;
+
+        .nin__window__body {
+          padding: 24px 36px 30px;
+          text-align: center;
+
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          p {
+            @include nin-type-paragraph;
+          }
+        }
+      }
+
+      &--game {
+        max-width: 570px;
+
+        .nin__window__body {
+          padding: 0;
+          text-align: center;
+
+          iframe {
+            max-width: 100%;
+          }
+        }
+      }
+
+      &--post-it-note {
+        $nin-post-it-footer-height: 35px;
+        $first-line-postiion: 8px;
+        padding: 0 0 $nin-post-it-footer-height + $first-line-postiion 0;
+        position: relative;
+        max-width: 400px;
+
+        .nin__window__body {
+          padding: 24px 20px 20px;
+          min-height: 300px;
+
+          h3 {
+            @include font-size(24, 31);
+          }
+        }
+
+        &__bottom {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: $nin-post-it-footer-height + $first-line-postiion;
+
+          // Add the number to post it note
+          // &::before {
+          //   content: '1';
+          //   position: absolute;
+          //   top: 40%;
+          //   left: 50%;
+          //   transform: translate(-50%, -60%);
+          // }
+
+          // Add dog ear to post it note
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: $first-line-postiion;
+            height: $nin-post-it-footer-height;
+            width: $nin-post-it-footer-height + 4px;
+            background-image: url(/images/next-is-now/gui-icon-dog-ear.svg);
+            background-position: left;
+            background-repeat: no-repeat;
+          }
+
+          // Add the post it note footer lines
+          .footer-line {
+            position: absolute;
+            right: 0;
+            bottom: $first-line-postiion;
+            left: 0;
+            height: 1px;
+            background: $black;
+
+            &:nth-of-type(2) {
+              bottom: $first-line-postiion - 3px;
+            }
+
+            &:nth-of-type(3) {
+              bottom: $first-line-postiion - 6px;
+            }
+          }
+        }
+      }
+
+      &--about {
+        max-width: 525px;
+
+        .nin__window__body {
+          text-align: center;
+          padding: 24px 48px 36px;
+
+          // Unique breakpoint to make small window look better
+          @media (max-width: 500px) {
+            padding-left: 24px;
+            padding-right: 24px;
+          }
+
+          h3 {
+            @include font-size(28, 35);
+            & + p {
+              margin-top: 12px;
+            }
+          }
+
+          h4 {
+            @include nin-type-paragraph;
+
+            margin-top: 23px;
+            text-transform: uppercase;
+
+            .nin__emoji {
+              margin: 0;
+              position: relative;
+              top: 1px;
+              width: auto;
+            }
+
+            & + p {
+              margin-top: 0;
+            }
+          }
+
+          p {
+            @include font-size(18, 23);
+
+            margin-top: 23px;
+          }
+        }
+      }
+    }
+
+    &__icon {
+      @include nin-type-label;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      // transition: transform 0.2s;
+
+      width: 155px;
+      display: block;
+      // &,&:hover { color: $black; }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &__image {
+        display: block;
+        margin: 0 auto;
+        z-index: 1;
+        width: 48px;
+        height: 48px;
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+        &--transformed {
+          display: none;
+        }
+      }
+
+      &__label {
+        background: $white;
+        text-align: center;
+        display: inline-block;
+        margin: 6px auto 0;
+        padding: 0 4px;
+      }
+    }
+    .nin__transformable {
+      z-index: 1;
+      position: relative;
+    }
+
+    .nin__transformable--transformed {
+      &,
+      *,
+      *::before,
+      *::after {
+        animation: nin-transform 0.5s forwards;
+        transition: all 0.2s;
+        transition-timing-function: cubic-bezier(0, 1.65, 1, -0.6);
+      }
+
+      &.nin__window,
+      .nin__window {
+        @include nin-type-paragraph--transformed;
+
+        filter: drop-shadow(4px 4px 0px $black);
+
+        &__header {
+          background: $nin-cobalt;
+          text-align: left;
+
+          &:after {
+            content: "";
+            position: absolute;
+            height: 28px;
+            width: 28px;
+            background: url(/images/next-is-now/gui-icon-handshake.svg);
+            top: 0;
+            left: 0;
+            border: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 9px;
+          }
+
+          // Junk for a cool glitch
+          &:before {
+            transform: translateY(-200%);
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          h2 {
+            @include nin-type-window-title--transformed;
+            color: $white;
+            background: transparent;
+            position: relative;
+            padding: 0;
+            margin-left: 28px;
+            display: inline-block;
+          }
+        }
+
+        &__body {
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            @include nin-type-headline--transformed;
+
+            & + p {
+              margin-top: 12px;
+            }
+          }
+        }
+
+        &__button {
+          @include nin-button--transformed;
+        }
+
+        &__video {
+          .youtube-player-button {
+            filter: none;
+            &::before {
+              opacity: 0;
+            }
+            &::after {
+              opacity: 1;
+              background-image: url(/images/next-is-now/youtube-player__play.svg);
+            }
+          }
+        }
+
+        &__fake-folder-details,
+        &__fake-scrollbars__right,
+        &__fake-scrollbars__bottom {
+          &,
+          *,
+          &::after,
+          &::before {
+            display: none;
+            transition-delay: 0.2s;
+          }
+        }
+
+        &__fake-scrollbars::after {
+          display: none;
+          transition-delay: 0.4s;
+        }
+
+        &--post-it-note {
+          background: transparent;
+          border: none;
+          padding: 0;
+          filter: drop-shadow(
+            5px 5px 2px rgba($black, 0.5)
+          ); // Shadow should be a little blurred in this case
+
+          h3 {
+            @include font-size(28, 32);
+            & + p {
+              margin-top: 18px;
+            }
+
+            // Unique breakpoint for smaller screen titles
+            @media (max-width: 500px) {
+              @include font-size(24, 28);
+            }
+          }
+
+          .nin__window__header {
+            opacity: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+
+          .nin__window__body {
+            padding: 35px 20px 50px;
+            background: $nin-yellow;
+            clip-path: polygon(
+              100% 0,
+              100% calc(100% - 35px),
+              calc(100% - 31px) 100%,
+              0 100%,
+              0 0
+            );
+          }
+
+          &__bottom {
+            right: 0;
+            bottom: 0;
+            left: auto;
+            width: 31px;
+            height: 35px;
+            position: absolute;
+            pointer-events: none;
+            background-image: url(/images/next-is-now/gui-icon-dog-ear--transformed.svg);
+
+            *,
+            &::before,
+            &::after {
+              opacity: 0;
+              position: absolute;
+            }
+          }
+        }
+
+        &--todo {
+        }
+
+        &--videos {
+          &__featured-video {
+            padding: 16px 16px 20px;
+            border-bottom: none;
+            position: relative;
+
+            .youtube-player-button {
+              border: 1px solid black;
+              outline: none;
+
+              &:focus,
+              &:focus-visible {
+                transition: none !important;
+                outline: 2px solid $nin-cobalt;
+              }
+
+              &:focus:not(:focus-visible) {
+                outline: none;
+              }
+            }
+
+            h4 {
+              @include nin-type-paragraph--transformed;
+              @include font-size(18, 23);
+            }
+
+            &::after {
+              position: absolute;
+              content: "";
+              height: 3px;
+              bottom: 0px;
+              right: 16px;
+              left: 16px;
+              background: $gray-100;
+            }
+          }
+
+          &__secondary-videos {
+            padding: 24px 16px;
+
+            h4 {
+              @include nin-type-paragraph--transformed;
+            }
+            ul {
+              border: none;
+            }
+          }
+        }
+        &--featured-resource {
+          .nin__window__body {
+            padding: 24px 24px 36px;
+            @screen legacy-md {
+              padding: 24px 45px 36px;
+            }
+          }
+          h3 {
+            max-width: 12em;
+            margin-right: auto;
+            margin-left: auto;
+          }
+          p {
+            max-width: 15em;
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+
+        //   &--events-hub {
+        //     .nin__window__body {
+        //         h3 {
+        //           max-width: 15em;
+        //         }
+        //       }
+        //     }
+
+        &--mailing-list {
+          max-width: 301px;
+
+          .nin__window__body {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            p {
+              @include nin-type-paragraph--transformed;
+            }
+          }
+        }
+
+        &--about {
+          .nin__window__body {
+            h3 {
+              @include font-size(30, 36);
+
+              // Special case because of the hashtag in the title that won't break and expands outside of the window on small screens. This fixes it.
+              @media (max-width: 500px) {
+                @include font-size(24, 28);
+              }
+            }
+
+            p {
+              @include font-size(18, 23);
+
+              margin-top: 23px;
+            }
+
+            h4 {
+              font-family: $suisse-stack;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 21px;
+              text-align: center;
+              letter-spacing: 0.09em;
+              text-transform: uppercase;
+              color: $nin-cobalt;
+
+              & + p {
+                margin-top: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .nin__icon {
+        @include nin-type-label--transformed;
+
+        &__image {
+          &--original {
+            display: none;
+          }
+
+          &--transformed {
+            display: block;
+          }
+        }
+
+        &__label {
+          background: transparent;
+        }
+
+        &--early-talent-award-winners-tips {
+          .nin__icon__image {
+            width: 80px;
+          }
+        }
+      }
+    }
+
+    // Base Marketo form styles prior to window Transformation
+    .marketo-form--nin {
+      #marketo-form__initial {
+        .mktoFormRow {
+          margin: 0;
+        }
+        .mktoButtonRow {
+          padding: 1px;
+        }
+        .mktoButton {
+          @include nin-button;
+        }
+        input {
+          width: 100%;
+          border: 1px solid $black;
+          border-radius: 0;
+          padding: 8px 10px;
+          min-height: auto;
+          // height: 27px;
+          // max-width: 167px;
+          margin: 16px auto 0;
+          @include nin-type-button;
+          text-align: left;
+          background: $white;
+
+          #Email {
+            margin-top: 12px;
+          }
+        }
+
+        #LblEmail {
+          .mktoAsterix,
+          span {
+            @include screen-reader-text;
+          }
+        }
+
+        .load-wrap {
+          overflow: visible;
+          min-height: 90px;
+          filter: grayscale(100%);
+        }
+      }
+
+      &.marketo-form--submitted {
+        #marketo-form__initial .mktoButtonRow {
+          position: relative;
+          &::after {
+            @include loading-anim;
+
+            animation: none !important;
+            transition: all 0s 0s !important;
+            top: 50%;
+            left: 50%;
+            content: "";
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+          }
+
+          .mktoButton {
+            // display: none;
+            transition: all 0s 0s !important;
+            opacity: 0;
+            min-height: 38px;
+            // margin-top: 1000px;
+          }
+        }
+      }
+    }
+
+    // Marketo Styles after Transform
+    .nin__transformable--transformed {
+      .marketo-form--nin {
+        #marketo-form__initial {
+          .mktoError {
+            @include nin-type-button--transformed;
+            text-align: center;
+            width: 100%;
+            position: relative;
+          }
+
+          input {
+            @include nin-type-button--transformed;
+          }
+
+          .mktoButton {
+            @include nin-button--transformed;
+            border: 1px solid $white; // Leaves a little room for the :focus-visible style
+          }
+
+          .load-wrap {
+            filter: none;
+          }
+        }
+
+        #marketo-form__success {
+          h2 {
+            //@include nin-type-transformed-h3;
+          }
+          p {
+            //@include nin-type-p2--transformed;
+          }
+        }
+      }
+    }
+  }
+
+  .nin__desktop-grid {
+    padding: 25px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12, 8.33333%);
+
+    &__item {
+      &--todo {
+        grid-row: 1 / span 1;
+        grid-column: 1 / span 11;
+        align-self: start;
+        justify-self: end;
+        top: 25px;
+
+        // Real small screens, just in case
+        @media (max-width: 374px) {
+          grid-column: 1 / span 12;
+          justify-self: normal;
+        }
+
+        @screen legacy-lg {
+          justify-self: start;
+          grid-row: 1 / span 1;
+          grid-column: 2 / span 10;
+          margin-top: 75px;
+        }
+      }
+
+      &--videos {
+        margin-top: 40px;
+        grid-row: 2 / span 1;
+        grid-column: 2 / span 11;
+
+        @screen legacy-lg {
+          margin-top: -100px;
+          grid-row: 2 / span 2;
+          grid-column: 6 / span 5;
+          z-index: 2;
+          position: relative;
+          left: 1vw;
+        }
+      }
+
+      &--featured-resource {
+        margin-top: 30px;
+        margin-right: -20px;
+        grid-row: 3 / span 1;
+        grid-column: 1 / span 10;
+        align-self: start;
+        justify-self: end;
+
+        @screen legacy-md {
+          margin-top: -20px;
+          margin-right: 0;
+          grid-row: 3 / span 1;
+          grid-column: 6 / span 6;
+        }
+
+        @screen legacy-lg {
+          margin-top: 0;
+          margin-right: 0;
+          grid-row: 3 / span 1;
+          grid-column: 1 / span 5;
+          position: relative;
+          top: -100px;
+          left: -2vw;
+          justify-self: end;
+        }
+      }
+
+      &--desktop-icons {
+        grid-row: 10 / span 2;
+        grid-column: 1 / span 12;
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 103px;
+        justify-content: center;
+
+        @screen legacy-lg {
+          display: block;
+          grid-row: 1 / span 1;
+          grid-column: 12 / span 1;
+          align-self: start;
+          justify-self: end;
+          margin-top: 0;
+          margin-top: 25px;
+        }
+
+        .nin__icon {
+          margin-bottom: 33px;
+        }
+      }
+
+      &--helpful-resources {
+        grid-row: 4 / span 2;
+        grid-column: 1 / span 13;
+        justify-self: end;
+        align-self: start;
+        margin-top: 55px;
+
+        // Real small screens, just in case
+        @media (max-width: 374px) {
+          grid-row: 4 / span 1;
+          grid-column: 1 / span 13;
+        }
+
+        @screen legacy-md {
+          grid-row: 4 / span 2;
+          grid-column: 1 / span 5;
+          margin-top: -140px;
+        }
+
+        @screen legacy-lg {
+          margin-top: 100px;
+          grid-row: 4 / span 1;
+          grid-column: 1 / span 6;
+        }
+      }
+
+      &--about {
+        grid-row: 6 / span 2;
+        grid-column: 2 / span 10;
+        align-self: start;
+        margin-top: -40px;
+
+        // Real small screens, just in case
+        @media (max-width: 374px) {
+          grid-row: 5 / span 1;
+          grid-column: 1 / span 10;
+          margin-top: -50px;
+        }
+
+        @screen legacy-md {
+          grid-row: 5 / span 1;
+          grid-column: 5 / span 8;
+          margin-top: 150px;
+        }
+
+        @screen legacy-lg {
+          margin-top: -125px;
+          grid-row: 5 / span 2;
+          grid-column: 6 / span 7;
+          margin-left: 80px;
+        }
+      }
+      &--mailing-list {
+        grid-row: 8 / span 1;
+        grid-column: 1 / span 11;
+        margin-top: 50px;
+        margin-left: -15px;
+
+        @media (min-width: 410px) {
+          grid-row: 8 / span 1;
+          grid-column: 1 / span 10;
+          align-self: start;
+          justify-self: end;
+          margin-top: 50px;
+        }
+
+        @screen legacy-md {
+          grid-row: 6 / span 1;
+          grid-column: 1 / span 10;
+          margin-top: 30px;
+        }
+
+        @screen legacy-lg {
+          grid-row: 6 / span 1;
+          grid-column: 1 / span 5;
+          margin-top: 150px;
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+
+  .nin__stat {
+    text-transform: uppercase;
+  }
+
+  .nin__todo-list {
+    @include semantic-only-list;
+    pointer-events: none;
+
+    li {
+      margin-top: 18px;
+
+      label {
+        @include nin-type-paragraph;
+        @include font-size(18, 23);
+
+        padding-left: 28px;
+        display: block;
+        position: relative;
+        filter: grayscale(100%);
+        text-align: left;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 16px;
+          height: 16px;
+          border: 1px solid $black;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -3px;
+          left: 1px;
+          width: 22px;
+          height: 22px;
+          opacity: 0;
+          background: url(/images/next-is-now/check.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+      }
+
+      input[type="checkbox"] {
+        @include screen-reader-text;
+        &:checked + label::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .nin__transformable--transformed {
+    .nin__todo-list {
+      position: relative;
+      li label {
+        @include nin-type-paragraph--transformed;
+        @include font-size(18, 23);
+        filter: none;
+      }
+
+      // &--complete {
+      //   &::after {
+      //     content: '';
+      //     position: absolute;
+      //     opacity: 0.5;
+      //     width: 200%;
+      //     height: 200%;
+      //     top: -50%;
+      //     left: -50%;
+      //     pointer-events: none;
+      //     background-image: url('https://www.icegif.com/wp-content/uploads/pizza-icegif-31.gif');
+      //     background-size: contain;
+      //     background-repeat: no-repeat;
+      //     background-position: center;
+      //   }
+      // }
+    }
+  }
+
+  // .nin--todos-complete {
+  //   background-image: url('https://www.icegif.com/wp-content/uploads/pizza-icegif-31.gif'), $nin-gradient;
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  // }
+
+  .nin__emoji {
+    height: 1em;
+    display: inline;
+    margin-left: 0.5ch;
+    filter: grayscale(100%);
+    vertical-align: baseline;
+    // transform: scale(1.1);
+    width: auto;
+  }
+
+  .nin__transformable--transformed {
+    .nin__emoji {
+      filter: none;
+    }
+  }
+
+  .nin__nav.nin__transformable {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 90;
+    height: 24px;
+    display: flex;
+    position: fixed;
+    padding: 3px 14px;
+    background: $white;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      margin: 0;
+    }
+
+    .nin__nav {
+      &__clock,
+      &__wordmark {
+        font-family: $chicago-stack;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: -0.25px;
+        text-align: left;
+        color: $black;
+      }
+      &__wordmark {
+        &__old {
+          img {
+            filter: invert(1);
+            height: 12px;
+            position: relative;
+            top: -1px;
+            margin-right: 3px;
+          }
+        }
+        &__transformed {
+          opacity: 0;
+          position: absolute;
+          // transform: scale(1.5) translate(50%,50%);
+          pointer-events: none;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  .nin__nav.nin__transformable--transformed {
+    background-color: rgba($white, 0.5);
+
+    .nin__nav {
+      &__wordmark__old {
+        opacity: 0;
+        position: absolute;
+        // transform: scale(1.5) translate(100px,40px);
+        pointer-events: none;
+      }
+
+      &__wordmark__transformed {
+        opacity: 1;
+        transform: none;
+        position: relative;
+        pointer-events: auto;
+      }
+
+      &__clock {
+        @include nin-type-button--transformed;
+      }
+    }
+  }
+
+  .nin__custom-cursor {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    z-index: 1000000;
+    position: fixed;
+    pointer-events: none;
+
+    &__icon {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+      background-size: contain;
+      background-position: 0% 0%;
+      transition: transform 0.13s;
+      background-repeat: no-repeat;
+
+      &--normal {
+        top: -10%;
+        left: -10%;
+        transform-origin: 25% 25%;
+        background-image: url(/images/next-is-now/gui-cursor.png);
+      }
+
+      &--loading {
+        top: -10%;
+        left: -10%;
+        transform-origin: 25% 25%;
+        background-image: url(/images/next-is-now/gui-cursor--loading.png);
+      }
+
+      &--scroll {
+        top: -87%;
+        left: -33%;
+        transform-origin: 25% 25%;
+        background-image: url(/images/next-is-now/gui-cursor--scroll.png);
+      }
+
+      &--hover {
+        top: -10%;
+        left: -25%;
+        transform-origin: 25% 25%;
+        background-image: url(/images/next-is-now/gui-cursor--hover.png);
+      }
+    }
+
+    .nin__custom-cursor__icon {
+      transform: scale(0);
+    }
+    .nin__custom-cursor__icon--normal {
+      transform: none;
+    }
+
+    &--scroll {
+      .nin__custom-cursor__icon {
+        transform: scale(0);
+      }
+      .nin__custom-cursor__icon--scroll {
+        transform: none;
+      }
+    }
+
+    &--hover {
+      .nin__custom-cursor__icon {
+        transform: scale(0);
+      }
+      .nin__custom-cursor__icon--hover {
+        transform: none;
+      }
+    }
+
+    &--loading {
+      .nin__custom-cursor__icon {
+        transform: scale(0);
+      }
+      .nin__custom-cursor__icon--loading {
+        transform: none;
+      }
+    }
+  }
+  .nin.nin--show-custom-cursor:not(.nin--touch-device) {
+    .nin__custom-cursor {
+      opacity: 1;
+    }
+    *,
+    *:hover {
+      cursor: none !important;
+    }
+  }
+  .nin.nin--touch-device {
+    .nin__custom-cursor {
+      display: none;
+    }
+  }
+
+  // Cut small titles on mobile
+  .nin__transformable:not(.nin__transformable--transformed) {
+    .nin__cut-on-mobile {
+      @include screen-reader-text;
+    }
+  }
+
+  // Remove the posterize filter on safari--it seems to break things in that browser.  Just grayscale...
+  html.is-probably-safari {
+    .nin__window__video .youtube-player-button {
+      filter: grayscale(100%);
+    }
+  }
+
+  // Focus styles
+  .nin {
+    // Selector  ":focus, :focus-visible { ..." is not valid in safari! So we gotta write this twice
+    :focus-visible {
+      transition: none !important;
+      outline: 2px solid $nin-cobalt;
+    }
+
+    :focus {
+      transition: none !important;
+      outline: 2px solid $nin-cobalt;
+    }
+
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}

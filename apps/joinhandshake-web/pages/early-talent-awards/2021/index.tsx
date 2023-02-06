@@ -118,7 +118,7 @@ const LandingPage = ({
         <div className="legacy-grid-container legacy-md:flex legacy-md:gap-legacy-4">
           <YoutubePopout
             videoId={pageData.youtubeVideoId}
-            className="relative ml-auto legacy-md:w-5/12"
+            className="ml-auto legacy-md:w-5/12"
           >
             <Image
               {...posterImageProps}
@@ -126,47 +126,6 @@ const LandingPage = ({
               sizes={`(min-width: ${screens["legacy-lg"]}) 50vw; 100vw`}
               priority
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 85 85"
-              version="1.1"
-              className="absolute top-1/2 left-1/2 h-legacy-20 w-legacy-20 -translate-x-1/2 -translate-y-1/2"
-            >
-              <title>Play</title>
-              <g
-                id="Designs"
-                stroke="none"
-                strokeWidth="1"
-                fill="none"
-                fillRule="evenodd"
-              >
-                <g
-                  id="HS_web_reskin_university"
-                  transform="translate(-1187.000000, -4238.000000)"
-                >
-                  <g
-                    id="Button-/-Play-Button"
-                    transform="translate(1187.000000, 4238.000000)"
-                  >
-                    <g id="Group-3">
-                      <circle
-                        id="Oval"
-                        fill="#FFFFFF"
-                        cx="42.5"
-                        cy="42.5"
-                        r="42.5"
-                      />
-                      <polygon
-                        id="Path-5"
-                        fill="#FB3325"
-                        transform="translate(48.000000, 43.500000) rotate(-270.000000) translate(-48.000000, -43.500000) "
-                        points="33 56.5 63 56.5 48 30.5"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
           </YoutubePopout>
           <div className="legacy-md:ml-auto legacy-md:w-5/12">
             <h2 className="mt-legacy-5 text-legacy-2.25xl">

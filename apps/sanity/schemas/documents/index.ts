@@ -6,6 +6,8 @@ import { etaIndustry2021 } from "./eta-2021-industry"
 import { etaWinner2021 } from "./eta-2021-winner"
 import { etaCategory2022 } from "./eta-2022-category"
 import { etaWinner2022 } from "./eta-2022-winner"
+import { nextIsNow } from "./next-is-now"
+import { handshakeStats } from "./stats"
 
 export const documents = [
   etaIndustry2021,
@@ -16,4 +18,6 @@ export const documents = [
   devImage,
   reusableImage,
   etaLanding2021,
+  nextIsNow,
+  handshakeStats,
 ]

@@ -83,3 +83,31 @@ export const SansPlomb = localFont({
   fallback: ["sans-serif"],
   variable: "--font-sans-plomb",
 })
+
+export const ChicagoFLF = localFont({
+  src: [
+    {
+      path: "../../public/fonts/ChicagoFLF.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  display: "block",
+  preload: true,
+  fallback: ["monospace"],
+  variable: "--font-chicago-flf",
+})
+
+export const Geneva = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Geneva.woff",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  display: "block",
+  preload: true,
+  fallback: ["system-ui"],
+  variable: "--font-geneva",
+})

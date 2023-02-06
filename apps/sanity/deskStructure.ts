@@ -11,7 +11,11 @@ import { ConfigContext } from "sanity"
  * otherwise they are hidden. These are also hidden from creating new
  * documents in the popup.
  */
-export const singletonTypes = new Set(["etaLanding2021"])
+export const singletonTypes = new Set([
+  "etaLanding2021",
+  "nextIsNow",
+  "handshakeStats",
+])
 
 /**
  * Types that are explicitly organized outside of the "catch all"
@@ -93,6 +97,18 @@ export const structure: (
                 .title("Industries")
                 .child(S.documentTypeList("etaCategory2022")),
             ])
+        ),
+      S.listItem()
+        .title("Next is Now")
+        .id("nextIsNowDoc")
+        .child(
+          S.document().schemaType("nextIsNow").documentId("nextIsNowPage")
+        ),
+      S.listItem()
+        .title("Handshake Stats")
+        .id("statsDoc")
+        .child(
+          S.document().schemaType("handshakeStats").documentId("handshakeStats")
         ),
       S.divider(),
       // Filter out hidden types for unauthorized users

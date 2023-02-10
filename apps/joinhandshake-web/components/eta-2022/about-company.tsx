@@ -36,18 +36,20 @@ export const ETA2022AboutCompany = ({
   const { eta2022Logo } = useReusableImages()
   const logoProps = useSanityImage(eta2022Logo.image)
   return (
-    <section className={`px-legacy-6 text-neutral-0 ${className}`}>
-      <div className="legacy-grid-container !max-w-5xl legacy-md:px-[0.9375rem]">
+    <section
+      className={`px-legacy-6 text-neutral-0 ${className} legacy-sm-md:px-0`}
+    >
+      <div className="eta2022-grid-container !max-w-screen-legacy-md-lg">
         <div className="pb-legacy-10">
           <div className="flex-row-reverse legacy-sm-md:flex">
-            <div className="pb-legacy-9 pt-legacy-10 legacy-sm-md:w-1/4 legacy-sm-md:px-legacy-4">
+            <div className="pb-legacy-9 legacy-sm-md:w-1/4 legacy-sm-md:pl-legacy-4">
               <Image
                 {...logoProps}
                 alt={eta2022Logo.descriptiveText}
                 className="h-min w-full max-w-[175px] transition-all duration-[350ms] hover:scale-110 hover:drop-shadow-[30px_30px_40px_rgba(186,24,209,.9)] legacy-sm-md:ml-auto"
               />
             </div>
-            <div className="legacy-sm-md:w-3/4 legacy-sm-md:flex-1 legacy-sm-md:px-legacy-4">
+            <div className="legacy-sm-md:w-3/4 legacy-sm-md:flex-1 legacy-sm-md:pr-legacy-4">
               {pastWinner ? (
                 <ETA2022PastWinnerBadge className="mt-legacy-10" />
               ) : null}

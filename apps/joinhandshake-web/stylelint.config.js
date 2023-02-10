@@ -11,7 +11,10 @@ module.exports = {
     ],
     "no-descending-specificity": null,
     "import-notation": null,
-    "value-keyword-case": ["lower", { camelCaseSvgKeywords: true }],
+    "value-keyword-case": [
+      "lower",
+      { camelCaseSvgKeywords: true, ignoreProperties: ["composes"] },
+    ],
     "no-invalid-position-at-import-rule": [
       true,
       { ignoreAtRules: ["tailwind"] },
@@ -25,5 +28,6 @@ module.exports = {
       true,
       { ignorePseudoClasses: ["global"] },
     ],
+    "property-no-unknown": [true, { ignoreProperties: ["composes"] }],
   },
 }

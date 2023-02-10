@@ -222,6 +222,7 @@
 }
 
 .leftToRightSlant {
+  composes: bottomLeftToRightSlant from "./shared.module.css";
   @apply relative bg-neutral-0;
 
   padding-top: 70px;
@@ -239,19 +240,6 @@
 
     @media (min-width: 125rem) {
       transform: skewY(1deg);
-    }
-  }
-
-  &::after {
-    @apply absolute block w-full;
-
-    content: "";
-    bottom: -35px;
-    border-top: 70px solid #fff;
-    transform: skewY(-2deg);
-
-    @media (min-width: 125rem) {
-      transform: skewY(-1deg);
     }
   }
 }

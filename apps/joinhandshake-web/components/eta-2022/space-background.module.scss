@@ -125,51 +125,72 @@
     }
 
     &Red {
-      background: radial-gradient(
-        circle closest-side,
-        $nova-color--red,
-        transparent
-      );
       @include nova-position--red();
 
-      &Category {
+      &,
+      &Category,
+      &Winner {
         background: radial-gradient(
           circle closest-side,
           $nova-color--red,
           transparent
         );
+      }
 
+      &Category {
         @include nova-position--red-category();
+      }
+
+      &Winner {
+        top: 12%;
+        right: -25%;
       }
     }
 
     &Green {
-      background: radial-gradient(
-        circle closest-side,
-        $nova-color--green,
-        transparent
-      );
-      opacity: 0.65;
       @include nova-position--green();
 
-      &Category {
+      &,
+      &Category,
+      &Winner {
         background: radial-gradient(
           circle closest-side,
           $nova-color--green,
           transparent
         );
         opacity: 0.65;
+      }
+
+      &Category {
         @include nova-position--green-category();
+      }
+
+      &Winner {
+        top: 20%;
+        left: -25%;
       }
     }
 
     &Purple {
-      background: radial-gradient(
-        circle closest-side,
-        $nova-color--purple,
-        transparent
-      );
-      @include nova-position--purple();
+      &,
+      &Category {
+        @include nova-position--purple();
+      }
+
+      &,
+      &Category,
+      &Winner {
+        background: radial-gradient(
+          circle closest-side,
+          $nova-color--purple,
+          transparent
+        );
+      }
+
+      &Winner {
+        top: 0;
+        left: -10%;
+      }
     }
   }
 
@@ -181,14 +202,16 @@
       @include planet-position--pink();
       height: 400px;
 
-      img {
-        height: 100%;
-        width: auto;
+      &,
+      &Category,
+      &Winner {
+        img {
+          height: 100%;
+          width: auto;
+        }
       }
 
       &Category {
-        //@include planet-position--pink();
-
         height: 400px;
         right: 0;
         bottom: 25%;
@@ -196,11 +219,10 @@
         @screen legacy-md-lg {
           bottom: 32%;
         }
+      }
 
-        img {
-          height: 100%;
-          width: auto;
-        }
+      &Winner {
+        display: none;
       }
     }
 
@@ -216,6 +238,10 @@
           left: 100px;
         }
       }
+
+      &Winner {
+        display: none;
+      }
     }
 
     &Blue {
@@ -228,7 +254,4 @@
       @include planet-position--blue();
     }
   }
-}
-
-.planetOrangeCategory {
 }

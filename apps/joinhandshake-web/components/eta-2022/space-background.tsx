@@ -6,7 +6,7 @@ import { useReusableImages } from "contexts"
 import { useSanityImage } from "hooks/use-sanity-image"
 import { usePrefersReducedMotion } from "hooks/util/use-prefers-reduced-motion"
 
-export type SpaceBackgroundStyle = "Category" | ""
+export type SpaceBackgroundStyle = "Category" | "Winner" | ""
 
 interface SpaceBackgroundProps {
   children: React.ReactNode
@@ -35,7 +35,9 @@ export const ETA2022SpaceBackground = ({
     <div className={`${styles.eta2022Bg} ${className}`}>
       <canvas className={styles.eta2022BgStars} ref={canvasRef} />
       <div
-        className={`${styles.eta2022BgNova} ${styles.eta2022BgNovaPurple}`}
+        className={`${styles.eta2022BgNova} ${
+          styles[`eta2022BgNovaPurple${style}`]
+        }`}
       />
       <div
         className={`${styles.eta2022BgNova} ${

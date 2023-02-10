@@ -9,9 +9,9 @@ const story: ComponentMeta<typeof ETA2022ShareYourWin> = {
 
 export default story
 
-const Template: ComponentStory<typeof ETA2022ShareYourWin> = (args) => (
+const Template: ComponentStory<typeof ETA2022ShareYourWin> = () => (
   <div className="mx-auto w-min">
-    <ETA2022ShareYourWin />
+    <ETA2022ShareYourWin shareText={"Share text"} />
   </div>
 )
 

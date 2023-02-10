@@ -32,6 +32,7 @@ html {
     @see: https://caniuse.com/mdn-css_at-rules_font-face_font-feature-settings
    */
   font-feature-settings: "ss03" 1, "ss06" 1, "ss12" 1;
+  -webkit-font-smoothing: antialiased;
 }
 
 .skeleton-text {
